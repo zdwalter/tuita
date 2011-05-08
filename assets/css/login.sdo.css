@@ -1,0 +1,291 @@
+body{
+    position:relative;
+    font-size:14px;
+    margin:0;
+    padding:0;
+    border:none;
+}
+
+#login_frame{
+    position:relative;
+    overflow:visible;
+}
+.user_name_title{
+    position:absolute;
+    left:0;
+    top:6px;
+}
+.user_name_input{
+    position:absolute;
+    left:57px;
+    top:0;
+}
+.user_pwd_title{
+    position:absolute;
+    top:32px;
+    left:0;
+}
+.user_pwd_input{
+    position:absolute;
+    left:57px;
+    top:26px;
+}
+.auto_login{
+    position:absolute;
+    left:20px;
+    top:58px;
+}
+.inputtxt{
+    height:18px;
+    margin:1px 0;
+    width:100px;            
+}
+.login_btn{
+    position:absolute;
+    left:106px;
+    top:59px;
+}
+.forget_pwd_link{
+    position:absolute;
+    left:178px;
+    top:63px;
+}
+.wap_reg_link{
+    position:absolute;
+    left:178px;
+    top:32px;
+}
+.btn_reg_frame{
+    position:absolute;
+    left:172px;
+    top:6px;            
+}
+a{
+    font-size:14px; 
+}
+
+a:visited{
+    color:blue;
+}
+.btn_user_login{
+    line-height:18px;
+    width:58px;
+    font-size:13px;
+}
+
+.ptpwd_label{
+    
+}
+
+#user_info_frame{
+    position:relative;
+}
+
+.welcome_info{
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+.user_name{
+    position:absolute;
+    left:56px;
+    top:0;
+}
+
+.welcome_info{
+    position:absolute;
+    left:0;
+    top:0;
+}
+
+.user_name{
+    position:absolute;
+    left:56px;
+    top:0;
+}
+
+.logout_btn_frm{
+    position:absolute;
+    left:0;
+    top:23px;
+}
+
+.msg{
+    position:absolute;
+    left:70px;
+    top:23px;
+}
+
+.user_title{
+    position:absolute;
+    top:48px;
+    left:0;
+}
+
+.user_rank{
+    font-weight:bold;
+    position:absolute;
+    top:48px;
+    left:70px;
+}
+
+.last_login_time_title,.user_welcome_info{
+    position:absolute;
+    top:70px;
+    left:0;
+}
+
+.last_login_time{
+    position:absolute;
+    top:70px;
+    left:127px;
+    
+}
+
+.pwd_title{
+    position:absolute;
+    left:0;
+    top:2px;
+}
+
+.pwd_input_frame{
+    position:absolute;
+    left:80px;
+    top:0px;
+}
+
+.challenge_title,.challenge_tip{
+    position:absolute;
+    left:0px;
+    top:25px;
+}
+
+.challenge_num{
+    position:absolute;
+    left:80px;
+    top:25px;
+}
+
+.btn_login_frame{
+    position:absolute;
+    left:0;
+    top:45px;
+}
+
+.btn_user_login{
+    padding:0;
+    margin:0;
+    background:url(http://loginres1.sdo.com/sdo/PRes/image/testlogin.gif) no-repeat;
+    width:56px;
+    height:21px;
+    display:block;
+}
+
+.link_check_frame{
+    position:absolute;
+    left:80px;
+    top:50px;
+}
+
+.link_loss_frame{
+    position:absolute;
+    left:120px;
+    top:50px;
+}
+.link_unbind_frame{
+    position:absolute;
+    left:160px;
+    top:50px;
+}
+.link_fax_frame{
+    position:absolute;
+    left:200px;
+    top:50px;
+}
+
+/***************°²È«¿¨ÑùÊ½********************/
+.ecard_po_1{
+    position:absolute;
+    left: 22px;
+    top: 5px;
+    
+}
+
+.ecard_po_2{
+    position:absolute;
+    left: 88px;
+    top: 5px;
+    
+}
+
+.ecard_po_3{
+    position:absolute;
+    left: 153px;
+    top: 5px;
+    
+}
+
+.ecard_position_1{
+    position:absolute;
+    left: 37px;
+    top: 30px;
+    
+}
+
+.ecard_position_2{
+    position:absolute;
+    left: 107px;
+    top: 30px;
+    
+}
+
+.ecard_position_3{
+    position:absolute;
+    left: 167px;
+    top: 30px;
+    
+}
+
+.btn_ecard_login{
+    position:absolute;
+    left: 14px;
+    top: 56px;
+    
+}
+
+.link_ecard_unbind{
+    position:absolute;
+    left: 142px;
+    top: 59px;
+    
+}
+
+.link_ecard_use{
+    position:absolute;
+    left: 108px;
+    top: 59px;
+    
+}
+
+.link_ecard_exchange{
+    position:absolute;
+    left: 76px;
+    top: 59px;
+    
+}
+
+.link_ecard_repay{
+    position:absolute;
+    left: 176px;
+    top: 59px;
+}
+
+/* kill sdo home's  */
+.form_header,
+.account_actions,
+.form_footer,
+.soft_kbd
+{
+    display:none;
+}
