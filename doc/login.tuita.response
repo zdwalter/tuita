@@ -1,0 +1,35 @@
+Request URL:http://www.tuita.com/login?refer=&ticket=ST-5e8e7e7d-dc70-4d74-aa17-842c3b4f8d89
+Request Method:GET
+Status Code:302 Moved Temporarily
+Request Headers
+Accept:application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Accept-Charset:GBK,utf-8;q=0.7,*;q=0.3
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:zh-CN,zh;q=0.8
+Connection:keep-alive
+Cookie:b_t_s=t104727701073xs; PHPSESSID=6019bf7709273169b452500e6503a4e7; __utmz=143606314.1304852838.2.6.utmcsr=login.sdo.com|utmccn=(referral)|utmcmd=referral|utmcct=/sdo/Logout/appLogout.php; tt_login=1; tt_reg=1; __utma=143606314.1618934333.1304846355.1304846355.1304852838.2; __utmc=143606314; __utmb=143606314.5.10.1304852838
+Host:www.tuita.com
+User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.65 Safari/534.24
+Query String Parameters
+refer:
+ticket:ST-5e8e7e7d-dc70-4d74-aa17-842c3b4f8d89
+Response Headers
+Cache-Control:no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Connection:keep-alive
+Content-Type:text/html
+Date:Sun, 08 May 2011 11:15:47 GMT
+Expires:Thu, 19 Nov 1981 08:52:00 GMT
+Location:http://www.tuita.com
+Pragma:no-cache
+Server:Apache/1.3.37.fb1
+Set-Cookie:__ttst=deleted; expires=Sat, 08-May-2010 11:15:46 GMT; path=/; domain=tuita.com
+__ttsa=deleted; expires=Sat, 08-May-2010 11:15:46 GMT; path=/; domain=tuita.com
+__ttstm=deleted; expires=Sat, 08-May-2010 11:15:46 GMT; path=/; domain=tuita.com
+__ttst=xMGw3f46CTaT9nJHc5s7jIOTBlXp5PdzftdzlaMMy1bDifUl8RA48Gx7Vlc8gaaRXpZ--XrcvWezpd%2AYsRk%2APKfbb8%2ATa9JKEd1Zl6BJltlQ7RkmgCkyfqx5%2AVvu2MpLU0YOCRSrAfMUFdEPp7EcjuThTic0ARfk41wvRIaR9fILqLNnYKBiF4jeN9DaMQWpgtuLWJ2AkGo; path=/; domain=tuita.com; httponly
+__ttsa=1491837948; path=/; domain=tuita.com
+__ttstm=1304853347; path=/; domain=tuita.com
+tt_login=1; expires=Mon, 07-May-2012 11:15:47 GMT; path=/; domain=tuita.com
+tt_reg=1; expires=Mon, 07-May-2012 11:15:47 GMT; path=/; domain=tuita.com
+Transfer-Encoding:chunked
+X-Powered-By:PHP/5.2.13
+x_host:t_219

@@ -1,0 +1,16 @@
+responseHeader: Date: Sun, 08 May 2011 11:39:09 GMT
+Via: sso5
+Content-Encoding: gzip
+Transfer-Encoding: Identity
+P3p: CP=CAO PSA OUR, CP=CAO PSA OUR
+Connection: close
+Pragma: no-cache
+Server: nginx/1.0.0
+Vary: Accept-Encoding
+Content-Language: zh-CN
+Cache-Control: no-cache, must-revalidate,no-cache,private
+Content-Type: text/html; charset=GBK
+Set-Cookie: CAS_AUTO_LOGIN=;Path=/;Domain=.sdo.com;Expires=Thu, 01 Jan 1970 00:00:00 GMT, CAS_AUTO_LOGIN=004ACA04EF0B7245A73DD78DC1E3E305unilinuxmc;Path=/;Domain=.sdo.com;Expires=Sun, 22-May-11 11:38:52 GMT, CAS_LOGIN_STATE=;Path=/;Domain=.sdo.com;Expires=Thu, 01 Jan 1970 00:00:00 GMT, CAS_LOGIN_STATE=1;Path=/;Domain=.sdo.com, sdo_dw_track=;Path=/;Domain=.sdo.com;Expires=Thu, 01 Jan 1970 00:00:00 GMT, sdo_dw_track="xHNvo2V0fNbE4/1D8QURAw==";Path=/;Domain=.sdo.com;Expires=Tue, 16-Mar-21
+11:38:52 GMT, JSESSIONID=1g8zhx9aknsx7;Path=/
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+

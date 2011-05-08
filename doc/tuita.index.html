@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<link rel="stylesheet" type="text/css" href="http://ipic.tuita.cc/css/compressed/tuita_common.css?201105061022" />
+<link rel="stylesheet" type="text/css" href="http://ipic.tuita.cc/css/common/reset.css?201105061022" />
+<link rel="stylesheet" type="text/css" href="http://ipic.tuita.cc/css/common/popup.css?201105061022" />
+<link rel="stylesheet" type="text/css" href="http://ipic.tuita.cc/css/common/get_code.css?201105061022" />
+<script type="text/javascript" src="http://ipic.tuita.cc/js/compressed/tuita_common_header.js?201105061022"></script>
+<script type="text/javascript" src="http://ipic.tuita.cc/js/lib/jquery-1.4.2.js?201105061022"></script>
+<script type="text/javascript" src="http://ipic.tuita.cc/js/page/homepage/block.js?201105061022"></script>
+<title>推他：一个人的记录，一群人的狂欢</title>
+	<meta name="description" content="推他是一个简单的富微博社区，你可以在任何时间、任何地点轻松发布你的心情、照片、音乐、视频、博客和文件，并与志同道合的朋友分享。" />
+	<meta name="keywords" content="推他，推他网，推她，推它，tuita，推客，轻博客，博客，微博，富微博，微博客，手记，手札，生活记录，个人空间，社区，阅读，日记，美图" />
+	<meta name="author" content="www.tuita.com" />
+	</head>
+<body>
+<script type="text/javascript" src="http://ipic.staticsdo.com/external/install_beacon.js"></script>
+
+<!--wraper-->
+<div id="wraper">
+	<!--header-->
+	<header id="header">
+		<nav>
+			<h1></h1><a href="#" title="推他" class="logo">推他</a>	
+		</nav>
+		<p><a href="/login">登录</a></p>
+	</header>
+	<!--/header-->
+	<!--main-->
+	<section id="main">
+		<!--mod_bner-->
+		<article class="mod_bner">
+			<div class="bn_box">
+				<div><img id="pic_loop_0" src="http://ipic.tuita.cc/img/common/bn1.jpg" style="display:block"/></div>
+				<div><img id="pic_loop_1" src="http://ipic.tuita.cc/img/common/bn2.jpg" style="display:none"/></div>
+				<div><img id="pic_loop_2" src="http://ipic.tuita.cc/img/common/bn3.jpg" style="display:none"/></div>
+				<div><img id="pic_loop_3" src="http://ipic.tuita.cc/img/common/bn4.jpg" style="display:none"/></div>
+			</div>
+			<div class="bn_page">
+				<a href="#" class="current" id="pic_link_0">1</a>
+				<a href="#" id="pic_link_1">2</a>
+				<a href="#" id="pic_link_2">3</a>
+				<a href="#" id="pic_link_3">4</a>
+			</div>
+		</article>
+		<!--/mod_bner-->
+    	<!--mod_get_code-->
+		<article class="mod_bottom">
+			<div class="mod_get_code">
+			<p class="p4"><strong>神秘测试中……想潜入？</strong>&nbsp;&nbsp;&nbsp;<button id="btn_get_code">抢码</button></p>
+			<div class="content" id="form_content">
+				<p class="p1">
+					<label><input name="" type="text" size="30" maxlength="30" class="input_word" id="email" value="邮箱地址 (绝密邀请信将发送至此邮箱)" /><strong id="email_error" style="display:none">您已经提交过申请啦</strong></label>
+				</p>
+				<p class="p2">
+					<label><textarea name="" cols="50" rows="10" id="homepage">绝密邀请信只给有故事的人，您可以告诉我们你的博客/微博/个人站点地址，并附上简短申请理由</textarea> <strong id="homepage_error" style="display:none">您已经提交过申请啦</strong></label>
+				</p>
+				<p class="p3">
+					<button type="submit" id="submit" value="" class="btn_a">提交申请</button> 
+				</p>
+			</div>
+			</div>
+			<footer class="mod_footer">
+			 	&copy;2011 盛大在线版权所有
+			</footer>
+		</article>
+        <!--/mod_get_code-->
+	</section>
+	<!--/main-->
+</div>
+<!--/wraper-->
+
+<div class="popup" style="width:200px; top:-8px; left:42%;display:none" id="successId">
+	<div class="pop_container">
+		<div class="pop_content">
+			<p class="cell_suc_box"><img src="http://ipic.tuita.cc/img/common/icon.png" class="icon_write_suc" alt="成功"><span attr="inner:text">提交成功！</span></p>
+		</div>
+	</div>
+</div>
+<!--/wraper-->
+<!--html footer-->
+<script type="text/Javascript">
+	var is_login = '0';
+
+	if(parseInt(is_login)){
+		alert("只有使用邀请链接才能进入哦~您可以向我们申请邀请链接 \(^o^)/");
+	}
+
+	var pic_total = 4;
+	var curr_index = 0;
+	var next_index = 0;
+	var prev_index = 0;
+
+	var pic_link_click = function(i){
+		return function(e){
+			var new_index = curr_index - 1;
+			if(new_index < 0){
+				new_index = 3;
+			}
+			//alert(i+','+new_index);
+			hide_pic(new_index);
+			show_pic(i);
+			curr_index = i+1;
+		}
+	}
+
+	for(var link_index = 0; link_index < pic_total; link_index++){
+		$('#pic_link_'+link_index).bind('click', pic_link_click(link_index));
+	}
+	
+	function pngfix(id){
+//		if($.browser.msie && $.browser.version == '6.0'){
+//			tuita.fixPNG(id, 850, 430);
+//		}
+	}
+
+	$(document).ready(function(){
+		show_pic(curr_index);
+		curr_index++;
+		setInterval(function(){
+			loop_pic();
+			hide_pic(prev_index);
+			show_pic(curr_index);
+			curr_index = next_index;
+		}, 5000);
+	});
+
+	function loop_pic(){
+		if(curr_index == 0){
+			prev_index = 3;
+			next_index = curr_index + 1;
+		} else if(curr_index == 3){
+			prev_index = curr_index - 1;
+			next_index = 0;
+		} else{
+			prev_index = curr_index - 1;
+			next_index = curr_index + 1;
+		}
+	}
+
+	function show_pic(index){
+		if(index > 3){
+			index = 3;
+		}
+		if(index < 0){
+			index = 0;
+		}
+		if(document.getElementById('pic_loop_'+index).tagName.toLowerCase() == 'div'){
+			$('#pic_loop_'+index).css('display', 'block');
+		}
+		$('#pic_loop_'+index).fadeIn("slow");
+		$('#pic_link_'+index).addClass("current");
+	}
+
+	function hide_pic(index){
+		$('#pic_loop_'+index).hide();
+		$('#pic_link_'+index).removeClass("current");
+	}
+
+	$('#btn_get_code').bind('click', function(){$('#btn_get_code').hide(); $('#form_content').show(); se(document.body).slideTo(10000);});
+	$('#email').focus(function(){if($('#email').val() == '邮箱地址 (绝密邀请信将发送至此邮箱)') {$('#email').val('');}});
+	$('#homepage').focus(function(){if($('#homepage').val() == '绝密邀请信只给有故事的人，您可以告诉我们你的博客/微博/个人站点地址，并附上简短申请理由') {$('#homepage').val('');}});
+
+	se.bindEvent('submit', "click", function(e){
+		var email = se(se.id("email").value).trim();
+		var homepage = se(se.id("homepage").value).trim();
+
+		if(!email.length || email == '邮箱地址 (绝密邀请信将发送至此邮箱)'){
+			$('#email_error').html("请输入邮箱地址");
+			$('#email_error').show();
+			//alert('请输入邮箱地址');
+			return false;
+		}
+
+		if(!is_email(se.id('email').value)){
+			//alert('请输入正确的邮箱地址');
+			$('#email_error').html("请输入正确的邮箱地址");
+			$('#email_error').show();
+			return false;
+		}
+
+		if(!homepage.length || homepage == '绝密邀请信只给有故事的人，您可以告诉我们你的博客/微博/个人站点地址，并附上简短申请理由'){
+			//alert('请输入您的微博、博客或个人站点地址');
+			$('#homepage_error').html("请输入您的微博、博客或个人站点地址");
+			$('#homepage_error').show();
+			return false;
+		}
+		if(homepage.length > 1000){
+			$('#homepage_error').html("内容有点长了.");
+			$('#homepage_error').show();
+			return false;
+		}
+
+		tuita.request('/register/commit', on_suc_callback, {'email': encodeURIComponent(email), 'homepage': encodeURIComponent(homepage)}, on_fail_callback, 'POST');
+	});
+
+	function on_suc_callback(data){
+		var floatMsg = se.widget.create("floatMsg", "successId");
+		floatMsg.succMsg("提交成功！", true);
+		se.id("email").value = '';
+		se.id("homepage").value = '';
+		$('#email_error').html("");
+		$('#email_error').hide();
+		$('#homepage_error').html("");
+		$('#homepage_error').hide();
+	}
+
+	function on_fail_callback(data){
+		if(data.errno == 4){
+			$('#email_error').html("您已经提交过申请啦");
+			$('#email_error').show();
+			$('#homepage_error').html("");
+			$('#homepage_error').hide();
+			return false;
+		}else{
+			$('#email_error').html("出了点小问题");
+			$('#email_error').show();
+			$('#homepage_error').html("");
+			$('#homepage_error').hide();
+			return false;
+		}
+	}
+
+	function is_email(str){ 
+		p = /^([\w\.-]+)@([a-zA-Z0-9-]+)(\.[a-zA-Z\.]+)$/; 
+		if(str.search(p) == -1){ 
+			return false; 
+		}else{ 
+			return true; 
+		} 
+	}
+
+</script>
+
+<!--html footer--> 
+</body>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22674928-1']);
+  _gaq.push(['_setDomainName', '.tuita.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>

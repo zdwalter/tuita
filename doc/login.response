@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <meta http-equiv="Cache-Control" content="no-cache" />
+    <title>LoginD</title>
+    <script type="text/javascript">        try { document.domain = "sdo.com"; } catch (e) { }</script>
+        <script type="text/javascript">
+            encode = function(unzipStr) {
+                var zipstr = ""; var tt = "";
+                var strSpecial = "!\"#$%&'()*+,/:;<=>?[]^`{|}~%";
+                for (var i = 0; i < unzipStr.length; i++) {
+                    var chr = unzipStr.charAt(i);
+                    var c = StringToAscii(chr);
+                    tt += chr + ":" + c + "n";
+                    if (parseInt("0x" + c) > 0x7f) { zipstr += encodeURI(unzipStr.substr(i, 1)); }
+                    else {
+                        if (chr == " ") zipstr += "+";
+                        else if (strSpecial.indexOf(chr) != -1) zipstr += "%" + c.toString(16);
+                        else zipstr += chr;
+                    }
+                } return zipstr;
+            }
+            StringToAscii = function(str) { return str.charCodeAt(0).toString(16); }
+        </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var actionurlobj = "http://www.tuita.com/login";var appidobj = "256";var errorcodeobj = "2";var msgobj = "²ÎÊý´íÎó";var servicesobj = "http://www.tuita.com/login?refer
+="; var loginCustomerUrlobj = "http%3A%2F%2Fwww%2Etuita%2Ecom%2Flogin";
+        var loginexpress = /^https?:\/\/.*(login|load|www)\.sdo\.com/i;
+        if ((appidobj == "626") || (appidobj == "647")) {
+            if (errorcodeobj == "1" || errorcodeobj == "2") {
+                    msgobj = "";
+        }}
+        var ku6reg = /^https?:\/\/([a-zA-Z.-]+\.)?(ku6.(com|cn|net)|ku6-inc.com|phpcms.cn|juchang.(com|cn|com.cn))((\/|\?).+)?$/i;
+        if (servicesobj.length > 0 && ku6reg.test(servicesobj)) { }
+        else {
+            if (loginCustomerUrlobj.length > 0 && msgobj.length > 0) {
+                alert(msgobj); msgobj = "";
+            }
+        }
+        if (loginexpress.test(actionurlobj)) {
+            if (actionurlobj.indexOf("?", 0) > 0) {actionurlobj += "&";}
+            else {actionurlobj += "?";}
+            actionurlobj += "uid="
+               + "&appId=256&appArea=0&templateId=&sdid=&pageType=0&infoEx=&service=http%3A%2F%2Fwww%2Etuita%2Ecom%2Flogin%3Frefer+%3D"
+               + "&ekeytype=&challenge=&cardno=&ecardpos="
+			   +"&err=2&type=sso&app=&checkCodeUrl=&loginCustomerUrl=http%3A%2F%2Fwww%2Etuita%2Ecom%2Flogin&ppErrorCode=0"
+			   +"&msg=" + encode(msgobj);
+        }
+        location.href = actionurlobj;
+    </script>
+</body>
+</html>
+

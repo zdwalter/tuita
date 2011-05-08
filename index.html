@@ -4,23 +4,22 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" content="charset=UTF-8" />
 		<title>推他</title>
 		<link rel="stylesheet" href="assets/css/master.css" type="text/css" media="screen" />
-		
+
 		<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
-		
 		<script src="assets/js/xui.js" type="text/javascript" charset="utf-8"></script>
-		
 		<script src="assets/js/lawnchair/adaptors/LawnchairAdaptorHelpers.js" type="text/javascript" charset="utf-8"></script>
-		
 		<script src="assets/js/lawnchair/adaptors/DOMStorageAdaptor.js" type="text/javascript" charset="utf-8"></script>
-		
 		<script src="assets/js/lawnchair/adaptors/WebkitSQLiteAdaptor.js" type="text/javascript" charset="utf-8"></script>
-		
 		<script src="assets/js/lawnchair/Lawnchair.js" type="text/javascript" charset="utf-8"></script>
-		
 		<script src="assets/js/dsl.js" type="text/javascript" charset="utf-8"></script>
-		
+		<script src="assets/js/jquery-1.6.min.js" type="text/javascript" charset="utf-8"></script>
+
 		<script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
-		
+        <!--
+		<script src="assets/js/sdo/login.js" type="text/javascript" charset="utf-8"></script>
+        -->
+		<script src="assets/js/cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="assets/js/tuita.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
         <!--
@@ -33,16 +32,13 @@
             </div>
             <div class="mod_login"> 
                 <!-- copy form login.html -->
-<script src="assets/js/sdo/login.js" type="text/javascript" charset="utf-8"></script>
 <div class="login_box_wrapper">
 <link rel="stylesheet" href="assets/css/login@sdo.css" type="text/css" />
 <!-- this need to auto update -->
 <link rel="stylesheet" href="http://www.tuita.com/html/css/IframeLogin.css?201105061022" type="text/css" />
 <link rel="stylesheet" href="assets/css/login@tuita.css" type="text/css" />
-    <form name="form" id="form" method="post" action="https://dplogin.sdo.com/dispatchlogin.fcgi" target="_top" accept-charset="utf8"> 
+    <form name="login_form" id="login_form" method="post" action="" accept-charset="utf8"> 
         <!-- data fields -->      
-        <input type="hidden" name="username" id="username" value="" />
-        <input type="hidden" name="password" id="password" value="" />
         <input type="hidden" name="templateId" id="templateId" value="" />
         <input type="hidden" name="sdid" id="sdid" value="" />
         <input type="hidden" name="infoEx" id="infoEx" value="" />
@@ -74,7 +70,7 @@
                 <label for="ptname" class="ptname_label" id="ptname_label">通行证:</label>
             </div>
             <div id="user_name_input" class="user_name_input">
-                <input type="text" placeholder="手机/邮箱/个性帐号" class="ptname inputtxt" id="ptname" maxlength="50" name="ptname"   tabindex="1" autocomplete="off" />
+                <input type="text" placeholder="手机/邮箱/个性帐号" class="ptname inputtxt" id="username" maxlength="50" name="password"   tabindex="1" autocomplete="off" />
             </div>
 <!--
             <div id="btn_reg_frame" class="btn_reg_frame">
@@ -85,16 +81,19 @@
                 <label for="ptpwd" class="ptpwd_label" id="ptpwd_label">密&nbsp;&nbsp;码:</label>
             </div>
             <div id="user_pwd_input" class="user_pwd_input">
-                <input type="password" id="ptpwd" name="ptpwd" class="ptpwd inputtxt" tabindex="2" maxlength="40" />
+                <input type="password" id="password" name="password" class="ptpwd inputtxt" tabindex="2" maxlength="40" />
             </div>
+<!--
             <div id="safe_edit_input" class="safe_edit_input user_pwd_input" style="display:none;"></div>
+-->
+
 <!--
             <div id="wap_reg_link" class="wap_reg_link">
                 <a id="btn_mobile_reg" href="http://www.sdo.com/wap/index.asp" target="_blank">手机注册</a>
             </div>
 -->
             <div id="login_btn" class="login_btn">
-                <a id="btn_user_login" class="btn_user_login" href="javascript:check_form(); void(0);" tabindex="3" title="登录"></a>
+                <a id="btn_user_login" class="btn_user_login" href="javascript:doLogin();" tabindex="3" title="登录"></a>
             </div>
 
 <!--
