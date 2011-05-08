@@ -58,7 +58,6 @@ body {
 
 .fullscrean {
   padding: 0px;
-  width: 100%;
 	/*  only one view is displayed at a time
 	    so we'll set the views to default to be un-displayed
 	    and then override this based on the element id */
