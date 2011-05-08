@@ -33,11 +33,13 @@
             </div>
             <div class="mod_login"> 
                 <!-- copy form login.html -->
+<script src="assets/js/sdo/login.js" type="text/javascript" charset="utf-8"></script>
 <div class="login_box_wrapper">
 <link rel="stylesheet" href="assets/css/login@sdo.css" type="text/css" />
+<!-- this need to auto update -->
 <link rel="stylesheet" href="http://www.tuita.com/html/css/IframeLogin.css?201105061022" type="text/css" />
 <link rel="stylesheet" href="assets/css/login@tuita.css" type="text/css" />
-    <form name="form" id="form" method="post" action="https://dplogin.sdo.com/dispatchlogin.fcgi" target="_top" accept-charset="gb2312"> 
+    <form name="form" id="form" method="post" action="https://dplogin.sdo.com/dispatchlogin.fcgi" target="_top" accept-charset="utf8"> 
         <!-- data fields -->      
         <input type="hidden" name="username" id="username" value="" />
         <input type="hidden" name="password" id="password" value="" />
@@ -57,9 +59,11 @@
         <input type="hidden" name="encryptFlag" id="encryptFlag" value="0" /> 
 
         <!-- header sdo.com only-->
+        <!-- no use 
         <h2 class="form_header" >
             登录盛大在线
         </h2>
+        -->
         <!-- form body common part -->
         <div id="login_frame" > 
 <!--
@@ -98,7 +102,9 @@
                 <a id="btn_forget_pwd" href="http://pwd.sdo.com/ptinfo/safecenter/GetPwd/ChgPwdStepInputAcc.aspx?pwdchoose=findpwd" target="_blank">忘记密码</a>
             </div>
 -->
+<!--
             <a href="javascript:;" class="soft_kbd" id="lnkSoftKbd"></a>
+-->
         </div>
 
         <!-- account actions sdo.com only-->
@@ -109,10 +115,12 @@
         </div>
 -->
         <!-- footer sdo.com only-->
+        <!--
         <div class="form_footer" >
             <div class="corner_bdr2"></div>
             <div class="corner_bdr1"></div>
         </div> 
+        -->
     </form> 
 </div>
                 <!-- copy form login.html -->
