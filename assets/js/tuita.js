@@ -138,9 +138,13 @@ function after_login_sdo_href(responseText) {
         type: 'get', 
         headers: { Cookie: " tt_reg=1; tt_login=1; b_t_s=t104867177621xs; __utmz=143606314.1304867178.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=143606314.288821922.1304867178.1304867178.1304867178.1; __utmc=143606314; __utmb=143606314.3.10.1304867178" },
         success: after_login_tuita,
+        error: on_error
     });
 }; //after_login_sdo_href
 
+function on_error() {
+    alert('network error');
+};
 function after_login_tuita(responseText) {
     reset_cookie_from_response();
     this.responseText = responseText;
