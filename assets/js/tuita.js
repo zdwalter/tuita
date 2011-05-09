@@ -97,7 +97,7 @@ function doLogin_full() {
 
 function after_login_sdo(responseText) { 
     this.responseText = responseText;
-    //alert("after_login_sdo:responseText: "+this.responseText);
+    alert("after_login_sdo:responseText: "+this.responseText);
     if(this.responseText == "password missed") { // wrong pass/user!
         alert("wrong username or password"); 
     } else { // Success!
@@ -124,7 +124,7 @@ function after_login_sdo(responseText) {
 function after_login_sdo_href(responseText) {
     this.responseText = responseText;
     //this.responseText = '<script language="javascript">\n document.location = "http://www.tuita.com/login?refer=&ticket=ST-c96505a7-9f18-4045-b817-2c43e6f021cb";    </script>';
-    //alert("after_login_sdo_href:"+this.responseText);
+    alert("after_login_sdo_href:"+this.responseText);
     var reg = /ticket=.*;/;
     var result =  reg.exec(this.responseText);
     result = "var href=\"http://zdwalter.tuita.com/?"+result; //FIXME: any other page will cause 302 redirect, which loss cookie by $.ajax
