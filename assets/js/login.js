@@ -1,12 +1,15 @@
 
+//key:   -> ticket
+//key: /login?ticket -> cookie:__ttst
 var theData = new Lawnchair({adaptor:'dom'});
 var cookie = null;
 var tries = 0;
+var ajax_handler = null; 
 
 function test_login() {
     debug('test_login')
     if (is_login) 
-        display('#home');
+        go_home();
     else {
         //debug('user/pass:'+ login.username + "," + login.password);
         if (login.username) 
@@ -158,8 +161,7 @@ function test_getfeed(feed) {
     debug('feed.errno:'+feed.errno);
     if (feed.errno == 0) {
         is_login = true;
-        x$('strong#user').html(login.username);
-        display('#home');
+        go_home();
     }
     else {
         is_login = false;
