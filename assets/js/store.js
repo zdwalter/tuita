@@ -15,11 +15,9 @@ function store_load() {
         debug('saved:'+JSON.stringify(saved));
         if (saved) {                                                                 
             if (saved.login) {                                                         
-                debug(saved.login);
                 login = saved.login;
             }                                                                        
             if (saved.config) {
-                debug(saved.config);
                 config = saved.config;
             }
         }                                                                            
