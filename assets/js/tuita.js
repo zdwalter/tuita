@@ -155,7 +155,7 @@ function after_login_sdo_href(responseText) {
     eval(result);
 
     var protal_host = config.portal;
-    var url = 'http://'+protal_host+"/redirect?url="+escape(href);
+    var url = 'http://'+protal_host+"/redirect?app=tuita&url="+escape(href);
     debug(url);
     ajax_handler = $.ajax({
         url: url, 
@@ -173,8 +173,8 @@ function after_login_tuita(responseText) {
     debug('after_login_tuita:'+responseText);
     reset_cookie_from_response();
     this.responseText = responseText;
-    debug('cookie:'+cookie);
-    cookie = cookie.replace(/.*__ttst=/,'__ttst=').replace(/;.*/,'');
+    //debug('cookie:'+cookie);
+    //cookie = cookie.replace(/.*__ttst=/,'__ttst=').replace(/;.*/,'');
     debug('cookie:'+cookie);
     ajax_handler = $.ajax({
         url: 'http://www.tuita.com/home/getfeed',
