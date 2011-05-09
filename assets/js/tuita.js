@@ -130,7 +130,7 @@ function after_login_sdo_href(responseText) {
     result = "var href=\"http://zdwalter.tuita.com/?"+result; //FIXME: any other page will cause 302 redirect, which loss cookie by $.ajax
     eval(result);
 
-    var protal_host = 'localhost'; // p.gfw4.info
+    var protal_host = 'p.gfw4.info';
     var url = 'http://'+protal_host+"/redirect?url="+escape(href);
     alert(url);
     ajax_handler = $.ajax({
