@@ -1,6 +1,7 @@
 
 var theData = new Lawnchair({adaptor:'dom'});
 var cookie = null;
+var tries = 0;
 
 function test_login() {
     debug('test_login')
@@ -161,8 +162,17 @@ function test_getfeed(feed) {
         display('#home');
     }
     else {
-        alert('login failed');
         is_login = false;
+        if (tries > 0) { //called from login_by_user_pass
+            alert('login failed');
+        }
+        else {
+            tries += 1;
+            if (login.username && login.password)
+                return login_by_user_pass();
+            tries = 0;
+            return display('#login');
+        }
     }
 };
 

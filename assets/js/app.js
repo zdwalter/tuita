@@ -24,7 +24,7 @@ run(function () {
     when('#welcome');
     when('#logout', function() {
         alert('not support yet');
-    };
+    });
     when('#login', function() {
     });
     when('#settings', function() {
