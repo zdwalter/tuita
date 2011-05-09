@@ -133,6 +133,8 @@ function after_login_tuita(responseText) {
     //debug('cookie:'+cookie);
     //cookie = cookie.replace(/.*__ttst=/,'__ttst=').replace(/;.*/,'');
     debug('cookie:'+cookie);
+    login.tuita_cookie = cookie;
+    store_save();
     ajax_handler = $.ajax({
         url: 'http://www.tuita.com/home/getfeed',
         headers: { Cookie: cookie},
@@ -143,6 +145,5 @@ function after_login_tuita(responseText) {
 
 function after_getfeed(feed) {
     alert('feed:\n'+feed);
-    login.cookie = cookie;
 };
 

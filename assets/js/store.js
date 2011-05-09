@@ -4,7 +4,7 @@ var config = {
     portal: 'p.gfw4.info'
 };
 var login = {
-    cookie: null,
+    tuita_cookie: null,
     username: null,
     password: null,
 };
