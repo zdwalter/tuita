@@ -10,6 +10,7 @@ var login = {
 };
 
 function store_load() {
+    debug('store_load');
     store.get('db', function(saved) {
         if (saved) {                                                                 
             if (saved.login) {                                                         

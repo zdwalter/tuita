@@ -29,6 +29,7 @@ function doLogin() {
         if (!login.password && password) 
             login.password = password;
         store_save();
+        debug('user/pass:'+ login.username + "," + login.password);
         return doLogin_full();
     }
     catch(error) {
