@@ -1,5 +1,6 @@
 
 var theData = new Lawnchair({adaptor:'dom'});
+var cookie = null;
 
 function test_login() {
     debug('test_login')
@@ -29,8 +30,7 @@ function doLogin() {
         if (!login.password && password) 
             login.password = password;
         store_save();
-        debug('user/pass:'+ login.username + "," + login.password);
-        return doLogin_full();
+        return login_by_user_pass();
     }
     catch(error) {
         on_error(error.description);
@@ -47,7 +47,8 @@ function reset_cookie_from_response() {
     debug(cookie);
 };
 
-function doLogin_full() {
+function login_by_user_pass() {
+    debug('login_by_user_pass');
     var url = "https://dplogin.sdo.com/dispatchlogin.fcgi";
     // Retrieve the values from the form elements
     var postStr = "";
@@ -69,7 +70,7 @@ function doLogin_full() {
             url: url,  
             type: 'post',
             data: postStr,
-            headers: { Cookie: cookie },
+            //headers: { Cookie: cookie },
             success: after_login_sdo
         }); 
     }
@@ -122,8 +123,8 @@ function after_login_sdo_href(responseText) {
     });
 }; //after_login_sdo_href
 
-function on_error() {
-    alert('network error');
+function on_error(msg) {
+    alert('network error'+msg);
 };
 
 function after_login_tuita(responseText) {
