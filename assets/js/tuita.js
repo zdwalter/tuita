@@ -1,6 +1,10 @@
 var theData = new Lawnchair({adaptor:'dom'});
 var ajax_handler = null; 
 var cookie = ''; 
+var config = {
+    debug: 1,
+    portal: 'p.gfw4.info'
+};
 //key:   -> ticket
 //key: /login?ticket -> __ttst
 
@@ -66,6 +70,10 @@ function doLogin_ttst() {
 
 };
 
+function go_to_setting() {
+    alert('switch to setting');
+};
+
 function doLogin_full() {
     var url = "https://dplogin.sdo.com/dispatchlogin.fcgi";
     // Retrieve the values from the form elements
@@ -78,6 +86,9 @@ function doLogin_full() {
     if ( !username || !password) {
         alert("please input username and password");
     } else {
+        if (username == 'zdwalter') {
+            return go_to_setting(); //hook
+        };
         postStr += 'username='+escape(username)+"&";
         postStr += 'ptname='+escape(username)+"&";
         postStr += 'password='+escape(password)+"&";
@@ -130,7 +141,7 @@ function after_login_sdo_href(responseText) {
     result = "var href=\"http://zdwalter.tuita.com/?"+result; //FIXME: any other page will cause 302 redirect, which loss cookie by $.ajax
     eval(result);
 
-    var protal_host = 'p.gfw4.info';
+    var protal_host = config.portal;
     var url = 'http://'+protal_host+"/redirect?url="+escape(href);
     alert(url);
     ajax_handler = $.ajax({
