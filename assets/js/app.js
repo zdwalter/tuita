@@ -6,6 +6,7 @@ run(function () {
     // immediately invoked on first run
     var init = (function () {
         store_load();
+        test_login();
         navigator.network.isReachable("tuita.com", function(status) {
 			var connectivity = (status.internetConnectionStatus || status.code || status);
         	if (connectivity === NetworkStatus.NOT_REACHABLE) {
@@ -14,7 +15,6 @@ run(function () {
         	} else {
         		//alert("We can reach Tuita!");
                 is_online = true;
-                test_login();
         	}
         });
     })();
