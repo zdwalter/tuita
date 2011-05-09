@@ -4,8 +4,7 @@ var cookie = null;
 
 function test_login() {
     debug('test_login')
-    var logined = false;
-    if (logined) 
+    if (is_login) 
         display('#home');
     else {
         debug('user/pass:'+ login.username + "," + login.password);
@@ -14,7 +13,7 @@ function test_login() {
         if (login.password) 
             x$('input#password').attr('value', login.password);
         
-        display('#login');
+        doLogin();
     }
 };
 
@@ -22,7 +21,7 @@ function doLogin() {
     try {
         debug('doLogin');
         var username = $("input#username").val();
-        debug('user/pass:'+ login.username + "," + login.password);
+        //debug('user/pass:'+ login.username + "," + login.password);
         if (!login.username && username) 
             login.username = username;
 
@@ -30,7 +29,12 @@ function doLogin() {
         if (!login.password && password) 
             login.password = password;
         store_save();
-        return login_by_user_pass();
+
+        if (login.tuita_cookie)
+            return login_tuita_with_cookie();
+        if (login.username && login.password)
+            return login_by_user_pass();
+        display('#login');
     }
     catch(error) {
         on_error(error.description);
@@ -130,21 +134,32 @@ function on_error(msg) {
 function after_login_tuita(responseText) {
     debug('after_login_tuita:'+responseText);
     reset_cookie_from_response();
-    this.responseText = responseText;
+    //this.responseText = responseText;
     //debug('cookie:'+cookie);
     //cookie = cookie.replace(/.*__ttst=/,'__ttst=').replace(/;.*/,'');
     debug('cookie:'+cookie);
     login.tuita_cookie = cookie;
     store_save();
+};
+
+function login_tuita_with_cookie() {
     ajax_handler = $.ajax({
         url: 'http://www.tuita.com/home/getfeed',
-        headers: { Cookie: cookie},
+        headers: { Cookie: login.tuita_cookie},
         type: 'get',
-        success: after_getfeed
+        success: test_getfeed
         });
 }; //after_login_tuita
 
-function after_getfeed(feed) {
+function test_getfeed(feed) {
     alert('feed:\n'+feed);
+    if (feed.errno == 0) {
+        is_login = true;
+        display('#home');
+    }
+    else {
+        alert('login failed');
+        is_login = false;
+    }
 };
 

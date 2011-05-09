@@ -10,9 +10,9 @@ var login = {
 };
 
 function store_load() {
-    debug('store_load');
+    //debug('store_load');
     store.get('db', function(saved) {
-        debug('saved:'+JSON.stringify(saved));
+        //debug('saved:'+JSON.stringify(saved));
         if (saved) {                                                                 
             if (saved.login) {                                                         
                 login = saved.login;
@@ -25,7 +25,7 @@ function store_load() {
 };
 
 function store_save() {
-    debug('store_save');
+    //debug('store_save');
     store.save({
         key:'db',
         login: login,
