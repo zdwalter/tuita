@@ -7,15 +7,18 @@ run(function () {
         navigator.network.isReachable("tuita.com", function(status) {
 			var connectivity = (status.internetConnectionStatus || status.code || status);
         	if (connectivity === NetworkStatus.NOT_REACHABLE) {
-        		alert("No internet connection - we won't be able to show you any maps");
+        		alert("No internet connection");
         	} else {
-        		alert("We can reach Tuita!");
+        		//alert("We can reach Tuita!");
+                test_login();
         	}
         });
     })();
     
     // a little inline controller
     when('#welcome');
+    when('#login', function() {
+    });
     when('#settings', function() {
 		// load settings from store and make sure we persist radio buttons.
 		store.get('config', function(saved) {

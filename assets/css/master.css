@@ -56,7 +56,7 @@ body {
 	display: none;
 }
 
-.fullscrean {
+.fullscreen {
   padding: 0px;
 	/*  only one view is displayed at a time
 	    so we'll set the views to default to be un-displayed
