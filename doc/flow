@@ -1,0 +1,59 @@
+responseHeader: Date: Sun, 08 May 2011 12:07:27 GMT
+Via: 133
+Transfer-Encoding: Identity
+P3p: CP=CAO PSA OUR
+X-Cnection: close
+Server: nginx
+Content-Type: text/html; charset=gb2312
+Cache-Control: no-cache;
+Set-Cookie: SDO_ACCOUNT_TYPE=; domain=.sdo.com; path=/
+
+after_login_sdo:responseText: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>LoginD</title>
+    <script>
+        location.href = "https://cas.sdo.com/authenticationCallback?savetime=14&autologin=&sessionkey=5F0DDA8AE99A434885132F0A3C11C37Dunilinuxmc&code=2&token=C2D85BAE6B144749BB3AF7E7ACB1F560unilinuxmc&service=http%3A%2F%2Fwww%2Etuita%2Ecom%2Flogin%3Frefer%3D&appId=256&templateId=&upgradeUrl=&appArea=0&pageType=0&";
+    </script>
+</head>
+</html>
+
+
+responseHeader: Date: Sun, 08 May 2011 12:08:08 GMT
+Via: sso5
+Content-Encoding: gzip
+Transfer-Encoding: Identity
+P3p: CP=CAO PSA OUR, CP=CAO PSA OUR
+Connection: close
+Pragma: no-cache
+Server: nginx/1.0.0
+Vary: Accept-Encoding
+Content-Language: zh-CN
+Cache-Control: no-cache, must-revalidate,no-cache,private
+Content-Type: text/html; charset=GBK
+Set-Cookie: CAS_AUTO_LOGIN=;Path=/;Domain=.sdo.com;Expires=Thu, 01 Jan 1970 00:00:00 GMT, CAS_AUTO_LOGIN=5F0DDA8AE99A434885132F0A3C11C37Dunilinuxmc;Path=/;Domain=.sdo.com;Expires=Sun, 22-May-11 12:08:07 GMT, CAS_LOGIN_STATE=;Path=/;Domain=.sdo.com;Expires=Thu, 01 Jan 1970 00:00:00 GMT, CAS_LOGIN_STATE=1;Path=/;Domain=.sdo.com, sdo_dw_track=;Path=/;Domain=.sdo.com;Expires=Thu, 01 Jan 1970 00:00:00 GMT, sdo_dw_track="xHNvo2V0fNbE4/1D8QURAw==";Path=/;Domain=.sdo.com;Expires=Tue, 16-Mar-21 12:08:07 GMT, JSESSIONID=3uyzpxlcbmpn;Path=/
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+
+
+after_login_sdo_href:
+
+
+
+
+<script language="javascript">
+    document.location = "http://www.tuita.com/login?refer=&ticket=ST-05bee66e-98e6-4a96-9503-199bca7225c3";
+</script>
+
+
+responseHeader: Date: Sun, 08 May 2011 12:08:41 GMT
+Content-Encoding: gzip
+X-Powered-By: PHP/5.2.13
+Transfer-Encoding: Identity
+Connection: close
+Server: Apache/1.3.37.fb1
+X_host: t_215
+Content-Type: text/html; charset=UTF-8
+Set-Cookie: __ttst=deleted; expires=Sat, 08-May-2010 12:08:40 GMT; path=/; domain=tuita.com, __ttsa=deleted; expires=Sat, 08-May-2010 12:08:40 GMT; path=/; domain=tuita.com, __ttstm=deleted; expires=Sat, 08-May-2010 12:08:40 GMT; path=/; domain=tuita.com
+
+
+
