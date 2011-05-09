@@ -16,7 +16,7 @@ function debug(msg) {
 function check_cookie() {
     //Set-Cookie: SDO_ACCOUNT_TYPE=; domain=.sdo.com; path=/
     //alert("responseHeader: "+ ajax_handler.getAllResponseHeaders());
-    var reg = /Set-Cookie: .*/;
+    var reg = /Set-Cookie: .*/i;
     var result = reg.exec(ajax_handler.getAllResponseHeaders());
     eval((""+result).replace('Set-Cookie: ',"cookie += ';")+"'");
     debug(cookie);
@@ -24,7 +24,7 @@ function check_cookie() {
 };
 
 function reset_cookie_from_response() {
-    var reg = /Set-Cookie: .*/;
+    var reg = /Set-Cookie: .*/i;
     debug('reset_cookie_from_response');
     debug(ajax_handler.getAllResponseHeaders());
     var result = reg.exec(ajax_handler.getAllResponseHeaders());
@@ -126,13 +126,13 @@ function after_login_sdo(responseText) {
         alert("wrong username or password"); 
     } else { // Success!
         //    this.responseText = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n <html xmlns="http://www.w3.org/1999/xhtml">\n <head>\n <title>LoginD</title>\n <script>\n location.href = "https://cas.sdo.com/authenticationCallback?savetime=14&autologin=&sessionkey=07DD2D00E843804094C0CBD4A146533Dunilinuxmc&code=2&token=4452C06B93FCEE4DBC8638C62844D6BEunilinuxmc&service=http%3A%2F%2Fwww%2Etuita%2Ecom%2Flogin%3Frefer%3D&appId=256&templateId=&upgradeUrl=&appArea=0&pageType=0&";\n </script>\n </head>\n </html>';
-        var regCAPTCHA = /CAPTCHA/;
+        var regCAPTCHA = /CAPTCHA/i;
         var captcha = regCAPTCHA.exec(this.responseText);
         if (captcha) {
             alert('require input captcha; not support yet, please try later(1min)');
             return;
         };
-        var reg = /href = .*;/;
+        var reg = /href = .*;/i;
         var result =  reg.exec(this.responseText);
         eval("var href; "+ result);
         //alert(href);
@@ -149,7 +149,7 @@ function after_login_sdo_href(responseText) {
     this.responseText = responseText;
     //this.responseText = '<script language="javascript">\n document.location = "http://www.tuita.com/login?refer=&ticket=ST-c96505a7-9f18-4045-b817-2c43e6f021cb";    </script>';
     debug("after_login_sdo_href:"+this.responseText);
-    var reg = /ticket=.*;/;
+    var reg = /ticket=.*;/i;
     var result =  reg.exec(this.responseText);
     result = "var href=\"http://zdwalter.tuita.com/?"+result; //FIXME: any other page will cause 302 redirect, which loss cookie by $.ajax
     eval(result);
