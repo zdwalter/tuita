@@ -15,12 +15,12 @@ function load_tuita() {
 };
 
 function after_load_tuita(res) {
-    var reg_avatar = /background:url(.*)/i;
+    var reg_avatar = /background:url\(.*\)/i;
     var result_avatar = reg_avatar.exec(res);
     debug(result_avatar);
     x$('img#avatar').attr('style',result_avatar);
 
-    var reg_render = /tuita.render(.*);/
+    var reg_render = /tuita.render\(.*\);/
     var render = reg_render.exec(res);
     debug(render);
     eval(render);
@@ -28,5 +28,5 @@ function after_load_tuita(res) {
 
 function tuita() {};
 tuita.prototype.render = function(feeds) {
-    debug(feeds);
+    debug("render:"+feeds);
 };
