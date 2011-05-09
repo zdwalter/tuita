@@ -22,6 +22,9 @@ run(function () {
     
     // a little inline controller
     when('#welcome');
+    when('#logout', function() {
+        alert('not support yet');
+    };
     when('#login', function() {
     });
     when('#settings', function() {
