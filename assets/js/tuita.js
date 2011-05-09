@@ -18,7 +18,7 @@ function check_cookie() {
     //alert("responseHeader: "+ ajax_handler.getAllResponseHeaders());
     var reg = /Set-Cookie: .*/i;
     var result = reg.exec(ajax_handler.getAllResponseHeaders());
-    eval((""+result).replace('Set-Cookie: ',"cookie += ';")+"'");
+    eval((""+result).replace(/Set-Cookie: /i,"cookie += ';")+"'");
     debug(cookie);
 
 };
@@ -29,7 +29,7 @@ function reset_cookie_from_response() {
     debug(ajax_handler.getAllResponseHeaders());
     var result = reg.exec(ajax_handler.getAllResponseHeaders());
     debug(result);
-    eval((""+result).replace('Set-Cookie: ',"cookie = '")+"'");
+    eval((""+result).replace(/Set-Cookie: /i,"cookie = '")+"'");
     debug(cookie);
 };
 
