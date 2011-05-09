@@ -12,7 +12,7 @@ var login = {
 function store_load() {
     debug('store_load');
     store.get('db', function(saved) {
-        debug('saved:'+saved);
+        debug('saved:'+JSON.stringify(saved));
         if (saved) {                                                                 
             if (saved.login) {                                                         
                 debug(save.login);
