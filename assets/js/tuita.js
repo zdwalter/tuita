@@ -25,6 +25,8 @@ function check_cookie() {
 
 function reset_cookie_from_response() {
     var reg = /Set-Cookie: .*/;
+    debug('reset_cookie_from_response');
+    debug(ajax_handler.getAllResponseHeaders());
     var result = reg.exec(ajax_handler.getAllResponseHeaders());
     debug(result);
     eval((""+result).replace('Set-Cookie: ',"cookie = '")+"'");
@@ -63,7 +65,12 @@ function doLogin_ticket() {
 
 };
 function doLogin() {
+    try {
     return doLogin_full();
+    }
+    catch(error) {
+        on_error(error.description);
+    }
     //return doLogin_ttst();
 };
 function doLogin_ttst() {
