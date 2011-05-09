@@ -8,13 +8,18 @@ var config = {
 //key:   -> ticket
 //key: /login?ticket -> __ttst
 
+function debug(msg) {
+    if (config.debug)
+        alert(msg);
+};
+
 function check_cookie() {
     //Set-Cookie: SDO_ACCOUNT_TYPE=; domain=.sdo.com; path=/
     //alert("responseHeader: "+ ajax_handler.getAllResponseHeaders());
     var reg = /Set-Cookie: .*/;
     var result = reg.exec(ajax_handler.getAllResponseHeaders());
     eval((""+result).replace('Set-Cookie: ',"cookie += ';")+"'");
-    //alert(cookie);
+    debug(cookie);
 
 };
 
@@ -108,7 +113,7 @@ function doLogin_full() {
 
 function after_login_sdo(responseText) { 
     this.responseText = responseText;
-    alert("after_login_sdo:responseText: "+this.responseText);
+    debug("after_login_sdo:responseText: "+this.responseText);
     if(this.responseText == "password missed") { // wrong pass/user!
         alert("wrong username or password"); 
     } else { // Success!
@@ -116,7 +121,7 @@ function after_login_sdo(responseText) {
         var regCAPTCHA = /CAPTCHA/;
         var captcha = regCAPTCHA.exec(this.responseText);
         if (captcha) {
-            alert('need captcha');
+            alert('require input captcha; not support yet, please try later(1min)');
             return;
         };
         var reg = /href = .*;/;
@@ -135,7 +140,7 @@ function after_login_sdo(responseText) {
 function after_login_sdo_href(responseText) {
     this.responseText = responseText;
     //this.responseText = '<script language="javascript">\n document.location = "http://www.tuita.com/login?refer=&ticket=ST-c96505a7-9f18-4045-b817-2c43e6f021cb";    </script>';
-    alert("after_login_sdo_href:"+this.responseText);
+    debug("after_login_sdo_href:"+this.responseText);
     var reg = /ticket=.*;/;
     var result =  reg.exec(this.responseText);
     result = "var href=\"http://zdwalter.tuita.com/?"+result; //FIXME: any other page will cause 302 redirect, which loss cookie by $.ajax
@@ -143,7 +148,7 @@ function after_login_sdo_href(responseText) {
 
     var protal_host = config.portal;
     var url = 'http://'+protal_host+"/redirect?url="+escape(href);
-    alert(url);
+    debug(url);
     ajax_handler = $.ajax({
         url: url, 
         type: 'get', 
@@ -157,10 +162,11 @@ function on_error() {
     alert('network error');
 };
 function after_login_tuita(responseText) {
+    debug('after_login_tuita:'+responseText);
     reset_cookie_from_response();
     this.responseText = responseText;
     cookie = cookie.replace(/.*__ttst=/,'__ttst=').replace(/;.*/,'');
-    alert('cookie:'+cookie);
+    debug('cookie:'+cookie);
     ajax_handler = $.ajax({
         url: 'http://www.tuita.com/home/getfeed',
         headers: { Cookie: cookie},
