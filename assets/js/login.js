@@ -155,6 +155,7 @@ function test_getfeed(feed) {
     alert('feed:\n'+feed);
     if (feed.errno == 0) {
         is_login = true;
+        x$('strong#user').html(login.username);
         display('#home');
     }
     else {
