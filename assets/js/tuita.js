@@ -26,8 +26,9 @@ function check_cookie() {
 function reset_cookie_from_response() {
     var reg = /Set-Cookie: .*/;
     var result = reg.exec(ajax_handler.getAllResponseHeaders());
+    debug(result);
     eval((""+result).replace('Set-Cookie: ',"cookie = '")+"'");
-    //alert(cookie);
+    debug(cookie);
 };
 
 function doLoad() {
@@ -165,6 +166,7 @@ function after_login_tuita(responseText) {
     debug('after_login_tuita:'+responseText);
     reset_cookie_from_response();
     this.responseText = responseText;
+    debug('cookie:'+cookie);
     cookie = cookie.replace(/.*__ttst=/,'__ttst=').replace(/;.*/,'');
     debug('cookie:'+cookie);
     ajax_handler = $.ajax({
