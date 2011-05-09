@@ -14,6 +14,9 @@ function store_load() {
     store.get('db', function(saved) {
         debug('saved:'+JSON.stringify(saved));
         if (saved) {                                                                 
+            debug('saved:'+JSON.stringify(saved));
+            debug('saved.login:'+JSON.stringify(saved.login));
+            debug('saved:config:'+JSON.stringify(saved.config));
             if (saved.login) {                                                         
                 debug(save.login);
                 login = save.login;

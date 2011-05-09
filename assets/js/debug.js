@@ -1,6 +1,6 @@
 function debug(msg) {
     if (config.debug)
-        alert(msg);
+        alert('debug:\n'+msg);
 };
 
 
