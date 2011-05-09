@@ -18,7 +18,7 @@ function after_load_tuita(res) {
     var reg_avatar = /background:url\(.*\)/i;
     var result_avatar = reg_avatar.exec(res);
     debug(result_avatar);
-    x$('img#avatar').attr('style',result_avatar);
+    x$('p[class=avatar]').attr('style',result_avatar);
 
     var reg_render = /tuita.render\(.*\);/
     var render = reg_render.exec(res);
@@ -26,7 +26,8 @@ function after_load_tuita(res) {
     eval(render);
 };
 
-function tuita() {};
-tuita.prototype.render = function(feeds) {
+var tuita = {};
+
+tuita.render = function(feeds) {
     debug("render:"+feeds);
 };
