@@ -7,6 +7,7 @@ function test_login() {
     if (logined) 
         display('#home');
     else {
+        debug('user/pass:'+ login.username + "," + login.password);
         if (login.username) 
             x$('input#username').attr('value', login.username);
         if (login.password) 
@@ -18,7 +19,9 @@ function test_login() {
 
 function doLogin() {
     try {
+        debug('doLogin');
         var username = $("input#username").val();
+        debug('user/pass:'+ login.username + "," + login.password);
         if (!login.username && username) 
             login.username = username;
 
