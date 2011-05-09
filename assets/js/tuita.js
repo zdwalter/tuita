@@ -19,4 +19,14 @@ function after_load_tuita(res) {
     var result_avatar = reg_avatar.exec(res);
     debug(result_avatar);
     x$('img#avatar').attr('style',result_avatar);
+
+    var reg_render = /tuita.render(.*);/
+    var render = reg_render.exec(res);
+    debug(render);
+    eval(render);
+};
+
+function tuita() {};
+tuita.prototype.render = function(feeds) {
+    debug(feeds);
 };
