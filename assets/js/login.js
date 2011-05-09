@@ -1,6 +1,9 @@
+
+var theData = new Lawnchair({adaptor:'dom'});
+
 function test_login() {
-    var login = false;
-    if (login)
+    var logined = false;
+    if (logined)
         display('#home');
     else
         display('#login');

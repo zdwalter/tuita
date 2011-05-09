@@ -1,15 +1,19 @@
 // 
 //  --- our app behavior logic ---
 //
+var is_online = false;
 run(function () {
     // immediately invoked on first run
     var init = (function () {
+        store_load();
         navigator.network.isReachable("tuita.com", function(status) {
 			var connectivity = (status.internetConnectionStatus || status.code || status);
         	if (connectivity === NetworkStatus.NOT_REACHABLE) {
         		alert("No internet connection");
+                is_online = false;
         	} else {
         		//alert("We can reach Tuita!");
+                is_online = true;
                 test_login();
         	}
         });

@@ -9,9 +9,6 @@ var run = function(application) {
     }
 }
 
-// throw our settings into a lawnchair
-, store = new Lawnchair({adaptor:'dom'})
-
 // shows id passed
 , display = function(id) {
     x$(["#welcome", "#login", "#home", "#post", "#settings"]).each(function(e, i) {
