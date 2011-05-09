@@ -1,17 +1,7 @@
 var theData = new Lawnchair({adaptor:'dom'});
 var ajax_handler = null; 
-var cookie = ''; 
-var config = {
-    debug: 1,
-    portal: 'p.gfw4.info'
-};
 //key:   -> ticket
 //key: /login?ticket -> __ttst
-
-function debug(msg) {
-    if (config.debug)
-        alert(msg);
-};
 
 function check_cookie() {
     //Set-Cookie: SDO_ACCOUNT_TYPE=; domain=.sdo.com; path=/
@@ -63,15 +53,6 @@ function doLogin_ticket() {
         });
 
 
-};
-function doLogin() {
-    try {
-    return doLogin_full();
-    }
-    catch(error) {
-        on_error(error.description);
-    }
-    //return doLogin_ttst();
 };
 function doLogin_ttst() {
     ajax_handler = $.ajax({
