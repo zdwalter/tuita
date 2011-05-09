@@ -7,7 +7,7 @@ function test_login() {
     if (is_login) 
         display('#home');
     else {
-        debug('user/pass:'+ login.username + "," + login.password);
+        //debug('user/pass:'+ login.username + "," + login.password);
         if (login.username) 
             x$('input#username').attr('value', login.username);
         if (login.password) 
@@ -34,7 +34,7 @@ function doLogin() {
             return login_tuita_with_cookie();
         if (login.username && login.password)
             return login_by_user_pass();
-        display('#login');
+        return display('#login');
     }
     catch(error) {
         on_error(error.description);
@@ -137,7 +137,7 @@ function after_login_tuita(responseText) {
     //this.responseText = responseText;
     //debug('cookie:'+cookie);
     //cookie = cookie.replace(/.*__ttst=/,'__ttst=').replace(/;.*/,'');
-    debug('cookie:'+cookie);
+    //debug('cookie:'+cookie);
     login.tuita_cookie = cookie;
     store_save();
 };
@@ -152,7 +152,8 @@ function login_tuita_with_cookie() {
 }; //after_login_tuita
 
 function test_getfeed(feed) {
-    alert('feed:\n'+feed);
+    debug('feed:\n'+feed);
+    debug('feed.errno:'+feed.errno);
     if (feed.errno == 0) {
         is_login = true;
         x$('strong#user').html(login.username);
