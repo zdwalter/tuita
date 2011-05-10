@@ -158,7 +158,6 @@ function login_tuita_with_cookie() {
 function test_getfeed(feed) {
     debug('feed:\n'+feed);
     eval('var feed = '+feed);
-    debug('feed.errno:'+feed.errno);
     if (feed.errno == 0) {
         is_login = true;
         go_home();

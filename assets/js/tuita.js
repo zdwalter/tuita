@@ -24,17 +24,18 @@ function after_load_tuita(res) {
     var render = reg_render.exec(res);
     debug(render);
     feeds = render.replace('tuita\.render(','').replace(');','');
+    debug(feeds);
     tuita.render(feeds);
 };
 
 var tuita = {};
 
 tuita.parse = function(feed) {
-    debug(feed);
+    debug("parse:"+feed);
 };
 
 tuita.render = function(feeds) {
-    debug(feeds);
+    debug("reder:"+feeds);
     for (i in feeds) {
         var feed = feeds[i];
         debug(i+'-'+JSON.stringify(feed.sdid));
