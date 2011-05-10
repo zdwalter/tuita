@@ -43,7 +43,8 @@ tuita.html = function(type, post_content) {
         post += '<div>' + post_content.reblog_text + '</div>';
         post += '<div>' + tuita.html(post_content.reblog_body) + '</div>';
     } else {
-        post += '<div>' + post_content + '</div>';
+        post += '<h2 calss="title"> not support yet </h2>';
+        post += '<div>' + JSON.stringify(post_content) + '</div>';
     }
     return post;
 };
