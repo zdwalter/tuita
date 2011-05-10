@@ -25,11 +25,11 @@ function doLogin() {
     try {
         debug('doLogin');
         var username = $("input#username").val();
-        if (!login.username && username) 
+        if (username) 
             login.username = username;
 
         var password = $("input#password").val();
-        if (!login.password && password) 
+        if (password) 
             login.password = password;
         debug('user/pass:'+ login.username + "," + login.password);
         store_save();
@@ -155,6 +155,8 @@ function after_login_tuita(responseText) {
     //debug('cookie:'+cookie);
     login.tuita_cookie = cookie;
     store_save();
+
+    login_tuita_with_cookie();
 };
 
 function login_tuita_with_cookie() {
