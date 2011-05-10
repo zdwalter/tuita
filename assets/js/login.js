@@ -67,6 +67,7 @@ function login_by_user_pass() {
     var password = $("input#password").val();
     if ( !username || !password) {
         alert("please input username and password");
+        return display('#login');
     } else {
         postStr += 'username='+escape(username)+"&";
         postStr += 'ptname='+escape(username)+"&";
@@ -79,7 +80,8 @@ function login_by_user_pass() {
             type: 'post',
             data: postStr,
             //headers: { Cookie: cookie },
-            success: after_login_sdo
+            success: after_login_sdo,
+            error: on_error
         }); 
     }
 };
@@ -89,14 +91,22 @@ function after_login_sdo(responseText) {
     debug("after_login_sdo:responseText: "+this.responseText);
     if(this.responseText == "password missed") { // wrong pass/user!
         alert("wrong username or password"); 
+        return display('#login');
     } else { // Success!
         //    this.responseText = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n <html xmlns="http://www.w3.org/1999/xhtml">\n <head>\n <title>LoginD</title>\n <script>\n location.href = "https://cas.sdo.com/authenticationCallback?savetime=14&autologin=&sessionkey=07DD2D00E843804094C0CBD4A146533Dunilinuxmc&code=2&token=4452C06B93FCEE4DBC8638C62844D6BEunilinuxmc&service=http%3A%2F%2Fwww%2Etuita%2Ecom%2Flogin%3Frefer%3D&appId=256&templateId=&upgradeUrl=&appArea=0&pageType=0&";\n </script>\n </head>\n </html>';
         var regCAPTCHA = /CAPTCHA/i;
         var captcha = regCAPTCHA.exec(this.responseText);
         if (captcha) {
             alert('require input captcha; not support yet, please try later(1min)');
+            display('#login');
             return;
         };
+
+        var regAlert = /alert(msgobj)/i;
+        if (regAlert.exec(responseText)) {
+            alert('login failed');
+            return display('#login');
+        }
         var reg = /href = .*;/i;
         var result =  reg.exec(this.responseText);
         eval("var href; "+ result);
@@ -105,7 +115,8 @@ function after_login_sdo(responseText) {
             url: href, 
             type: 'get', 
      //       headers: { Cookie: cookie },
-            success: after_login_sdo_href
+            success: after_login_sdo_href,
+            error: on_error
         });
     }
 }; //after_login_sdo
@@ -151,7 +162,8 @@ function login_tuita_with_cookie() {
         url: 'http://www.tuita.com/home/getfeed',
         headers: { Cookie: login.tuita_cookie},
         type: 'get',
-        success: test_getfeed
+        success: test_getfeed,
+        error: on_error
         });
 }; //after_login_tuita
 
