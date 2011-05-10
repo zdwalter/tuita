@@ -102,7 +102,7 @@ function after_login_sdo(responseText) {
             return;
         };
 
-        var regAlert = /alert(msgobj)/i;
+        var regAlert = /alert\(msgobj\)/i;
         if (regAlert.exec(responseText)) {
             alert('login failed');
             return display('#login');
