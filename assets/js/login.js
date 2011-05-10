@@ -32,7 +32,7 @@ function doLogin() {
         var password = $("input#password").val();
         if (password) 
             login.password = password;
-        debug('user/pass:'+ login.username + "," + login.password);
+        debug('user:'+ login.username);
         store_save();
 
         if (login.tuita_cookie)
