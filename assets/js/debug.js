@@ -2,7 +2,7 @@ var release = true;
 var log = '';
 var step = 0;
 function debug(msg) {
-    log = "\n"+ step + ":" + msg; 
+    log += "\n"+ step + ":" + msg; 
     step += 1;
 };
 
