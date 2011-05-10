@@ -82,7 +82,7 @@ function login_by_user_pass() {
             data: postStr,
             //headers: { Cookie: cookie },
             success: after_login_sdo,
-            error: on_error
+            error: on_login_error
         }); 
     }
 };
@@ -118,7 +118,7 @@ function after_login_sdo(responseText) {
             type: 'get', 
      //       headers: { Cookie: cookie },
             success: after_login_sdo_href,
-            error: on_error
+            error: on_login_error
         });
     }
 }; //after_login_sdo
@@ -140,13 +140,9 @@ function after_login_sdo_href(responseText) {
         type: 'get', 
         headers: { Cookie: " tt_reg=1; tt_login=1; b_t_s=t104867177621xs; __utmz=143606314.1304867178.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=143606314.288821922.1304867178.1304867178.1304867178.1; __utmc=143606314; __utmb=143606314.3.10.1304867178" },
         success: after_login_tuita,
-        error: on_error,
+        error: on_login_error,
     });
 }; //after_login_sdo_href
-
-function on_error(msg) {
-    alert('error:\n'+msg);
-};
 
 function after_login_tuita(responseText) {
     debug('after_login_tuita:'+responseText);
@@ -167,7 +163,7 @@ function login_tuita_with_cookie() {
         headers: { Cookie: login.tuita_cookie},
         type: 'get',
         success: test_getfeed,
-        error: on_error
+        error: on_login_error
         });
 }; //after_login_tuita
 
@@ -194,3 +190,7 @@ function test_getfeed(feed) {
     }
 };
 
+function on_login_error(err) {
+    on_error(err);
+    display('#login');
+};
