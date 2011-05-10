@@ -1,3 +1,310 @@
+@charset "utf-8";
+body{
+	position:relative;
+	font-size:16px;
+	margin:0;
+	padding:0;
+	border:none;
+	font-family:"microsoft yahei";
+}
+a{
+	color:#737373;
+}
+a:hover{ text-decoration:underline; color:#666;}
+a:visited{
+	color:blue;
+}
+
+#login_frame{
+	position:relative;
+	overflow:visible;
+}
+.user_name_title{
+	position:absolute;
+	left:0;
+	top:11px;
+	*top:14px;
+	font-size:18px;
+	color:#44443b;
+	
+}
+.user_name_input{
+	position:absolute;
+	left:70px;
+	top:5px;
+}
+.user_pwd_title{
+	position:absolute;
+	top:11px;
+	*top:14px;
+	left:300px;
+	font-family:"microsoft yahei";
+}
+.user_pwd_input{
+	position:absolute;
+	left:360px;
+	top:5px;
+}
+.auto_login{
+	position:absolute;
+	left:69px;
+	top:48px;
+	font-size:12px;
+	color:#666;
+}
+.inputtxt{ border:1px solid #d2d2d2; height:27px; line-height:27px; width:180px; padding:5px; -moz-border-radius:5px; -khtml-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; font-size:18px;  outline:none; border:1px #a1a1a1 solid; background:#fff url(../img/input.png) no-repeat;}
+.login_btn{
+	position:absolute;
+	left:580px;
+	top:5px;
+}
+.forget_pwd_link{
+	position:absolute;
+	left:363px;
+	top:48px;
+}
+.wap_reg_link{
+	position:absolute;
+	left:178px;
+	top:32px;
+	display:none;
+}
+.btn_reg_frame{
+	position:absolute;
+	left:166px;
+	top:205px;
+	display:none
+	
+}
+.btn_reg_frame  a{
+	font-size:12px;
+	text-decoration:none;
+	color:#288fc7;
+}
+.btn_user_login{
+	line-height:18px;
+	width:183px;
+	font-size:13px;
+	outline:none;
+}
+
+.ptpwd_label{
+	font-size:18px; color:#44443b;
+	
+}
+
+#user_info_frame{
+	position:relative;
+}
+
+.welcome_info{
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+.user_name{
+	position:absolute;
+	left:56px;
+	top:0;
+}
+
+.welcome_info{
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+.user_name{
+	position:absolute;
+	left:56px;
+	top:0;
+}
+
+.logout_btn_frm{
+	position:absolute;
+	left:0;
+	top:23px;
+}
+
+.msg{
+	position:absolute;
+	left:70px;
+	top:23px;
+}
+
+.user_title{
+	position:absolute;
+	top:48px;
+	left:0;
+}
+
+.user_rank{
+	font-weight:bold;
+	position:absolute;
+	top:48px;
+	left:70px;
+}
+
+.last_login_time_title,.user_welcome_info{
+	position:absolute;
+	top:70px;
+	left:0;
+}
+
+.last_login_time{
+	position:absolute;
+	top:70px;
+	left:127px;
+	
+}
+
+.pwd_title{
+	position:absolute;
+	left:0;
+	top:2px;
+}
+
+.pwd_input_frame{
+	position:absolute;
+	left:80px;
+	top:0px;
+}
+
+.challenge_title,.challenge_tip{
+	position:absolute;
+	left:0px;
+	top:25px;
+}
+
+.challenge_num{
+	position:absolute;
+	left:80px;
+	top:25px;
+}
+
+.btn_login_frame{
+	position:absolute;
+	left:0;
+	top:45px;
+}
+
+.btn_user_login{
+	padding:0;
+	margin:0;
+	background:url(../img/login.png) no-repeat;
+	width:113px;
+	height:40px;
+	display:block;
+}
+
+.link_check_frame{
+	position:absolute;
+	left:80px;
+	top:50px;
+}
+
+.link_loss_frame{
+	position:absolute;
+	left:120px;
+	top:50px;
+}
+.link_unbind_frame{
+	position:absolute;
+	left:160px;
+	top:50px;
+}
+.link_fax_frame{
+	position:absolute;
+	left:200px;
+	top:50px;
+}
+
+/***************ȫʽ********************/
+.ecard_po_1{
+	position:absolute;
+	left: 22px;
+	top: 5px;
+	
+}
+
+.ecard_po_2{
+	position:absolute;
+	left: 88px;
+	top: 5px;
+	
+}
+
+.ecard_po_3{
+	position:absolute;
+	left: 153px;
+	top: 5px;
+	
+}
+
+.ecard_position_1{
+	position:absolute;
+	left: 37px;
+	top: 30px;
+	
+}
+
+.ecard_position_2{
+	position:absolute;
+	left: 107px;
+	top: 30px;
+	
+}
+
+.ecard_position_3{
+	position:absolute;
+	left: 167px;
+	top: 30px;
+	
+}
+
+.btn_ecard_login{
+	position:absolute;
+	left: 14px;
+	top: 56px;
+	
+}
+
+.link_ecard_unbind{
+	position:absolute;
+	left: 142px;
+	top: 59px;
+	
+}
+
+.link_ecard_use{
+	position:absolute;
+	left: 108px;
+	top: 59px;
+	
+}
+
+.link_ecard_exchange{
+	position:absolute;
+	left: 76px;
+	top: 59px;
+	
+}
+
+.link_ecard_repay{
+	position:absolute;
+	left: 176px;
+	top: 59px;
+}
+
+.forget_pwd_link a{ font-size:12px; text-decoration:none; color:#737373;}
+.auto_login_loading{ position:absolute;color:#666;font-size:12px;left:580px;top:15px;}
+.logining .btn_user_login{ display:none;}
+
+
+
+
+/***********************************/
 body {
     width: 320px;
 }
