@@ -58,7 +58,6 @@ function reset_cookie_from_response() {
 
 function login_by_user_pass() {
     debug('login_by_user_pass');
-    var url = "https://dplogin.sdo.com/dispatchlogin.fcgi";
     // Retrieve the values from the form elements
     var postStr = "";
     x$("input[type=hidden]").each(function(el) {
@@ -76,14 +75,20 @@ function login_by_user_pass() {
         postStr += 'ptpwd='+escape(password)+"&";
         postStr += 'auto_login=';
 
-        ajax_handler = $.ajax({
+        var url = "https://dplogin.sdo.com/dispatchlogin.fcgi";
+        ajax_handler = $.ajaxJSON({
             url: url,  
             type: 'post',
             data: postStr,
-            //headers: { Cookie: cookie },
+            headers: { Origin: 'http://login.sdo.com' },
             success: after_login_sdo,
-            error: on_login_error
+            error: on_login_sdo_error
         }); 
+
+        function on_login_sdo_error(err) {
+            on_login_error(err);
+            //TODO: use portal
+        };
     }
 };
 
