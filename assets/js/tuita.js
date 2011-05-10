@@ -17,7 +17,7 @@ var tuita = {};
 
 var types = {
     1: 'tuita',
-    2: 'post_blog',
+    2: 'blog',
     4: 'photoset',
     7: 'reblog',
     21: 'unknown'
@@ -40,10 +40,12 @@ tuita.html = function(type, post_content) {
         for (i in post_content) {
             var photo = post_content[i];
             post += '<img src="http://photo.staticsdo.com/' + photo.photo_url + "." + photo.photo_type +'">';
+            post += '<p>"http://photo.staticsdo.com/' + photo.photo_url + "." + photo.photo_type +'"</p>';
         }
     } else if (type == 'reblog') {
         post += '<div>' + post_content.reblog_text + '</div>';
-        post += '<div>' + tuita.html(post_content.reblog_body) + '</div>';
+        var reblog = post_content.reblog_body;
+        post += '<div>' + tuita.html(reblog.post_type, reblog.post_content) + '</div>';
     } else {
         post += '<h2 calss="title"> not support yet </h2>';
         post += '<div>' + JSON.stringify(post_content) + '</div>';
