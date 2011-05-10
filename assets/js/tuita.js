@@ -6,11 +6,13 @@ function go_home() {
 };
 
 function load_tuita() {
-   ajax_handler = $.ajax({
+    debug("load_tuite:'+login.tuita_cookie");
+    ajax_handler = $.ajax({
         url: 'http://www.tuita.com/',
         headers: { Cookie: login.tuita_cookie},
         type: 'get',
-        success: after_load_tuita
+        success: after_load_tuita,
+        error: on_login_error
         });
 };
 var tuita = {};
@@ -100,7 +102,7 @@ tuita.render = function(feeds) {
 function after_load_tuita(res) {
     var reg_avatar = /background:url\(.*\)/i;
     var result_avatar = reg_avatar.exec(res);
-    debug(result_avatar);
+    debug('avatar:'+result_avatar);
     x$('p[class=avatar]').attr('style',result_avatar);
 
     //TODO user info
