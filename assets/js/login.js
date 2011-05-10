@@ -25,13 +25,13 @@ function doLogin() {
     try {
         debug('doLogin');
         var username = $("input#username").val();
-        //debug('user/pass:'+ login.username + "," + login.password);
         if (!login.username && username) 
             login.username = username;
 
         var password = $("input#password").val();
         if (!login.password && password) 
             login.password = password;
+        debug('user/pass:'+ login.username + "," + login.password);
         store_save();
 
         if (login.tuita_cookie)
