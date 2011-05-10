@@ -20,12 +20,13 @@ var types = {
     2: 'blog',
     4: 'photoset',
     7: 'reblog',
-    21: 'follow?'
+    21: 'follow.update',
+    23: 'tuita.update'
 };
 
 tuita.html = function(type, post_content) {
     var post = '';
-    post += '<p>'+type +'</p>';
+    //post += '<p>'+type +'</p>';
 
     if (type == 'tuita') {
         post += '<div>' + post_content.body + '</div>'
@@ -54,7 +55,7 @@ tuita.parse = function(feed) {
     try {
         var typeid = feed.typeid;
         var type = types[typeid];
-        if (typeid == 21)
+        if (typeid > 20)
             return;
 
         var div = '<div>';
