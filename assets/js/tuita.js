@@ -23,9 +23,10 @@ var types = {
     21: 'follow?'
 };
 
-tuita.html = function(type, post_content, title) {
+tuita.html = function(type, post_content) {
     var post = '';
     var avatar = post_content.sdid;
+    post += '<p>'+type +'</p>';
     if (avatar && avatar.blog_title)
         post += '<p class="cell_user_info" >' + avatar.blog_title + '</p>';
 
@@ -63,12 +64,12 @@ tuita.parse = function(feed) {
         var poster = content.sdid;
         var post_content = content.post_content;
         var post_type = content.post_type;
-        var post = '<div class="feed_group" sytle="text-align: left">'
+        var post = '<div class="feed_group" style="text-align: left">'
                     +  '<p class="cell_user_info" >' + avatar.blog_title + '</p>'
                     +  '<div class="content">' 
                     +    '<div class="feed">';
-        if (post_content.post_title)
-            post +=  '<h2 class="title">' + post_content.post_title + '</h2>';
+        if (content.post_title)
+            post +=  '<h2 class="title">' + content.post_title + '</h2>';
         post += tuita.html(post_type, post_content);
         post    +=     '</div>'
                 +   '</div>'
