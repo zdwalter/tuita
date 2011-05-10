@@ -25,10 +25,7 @@ var types = {
 
 tuita.html = function(type, post_content) {
     var post = '';
-    var avatar = post_content.sdid;
     post += '<p>'+type +'</p>';
-    if (avatar && avatar.blog_title)
-        post += '<p class="cell_user_info" >' + avatar.blog_title + '</p>';
 
     if (type == 'tuita') {
         post += '<div>' + post_content.body + '</div>'
@@ -44,7 +41,7 @@ tuita.html = function(type, post_content) {
             //post += '<p>"http://photo.staticsdo.com/' + photo.photo_url + "." + photo.photo_type +'"</p>';
         }
     } else if (type == 'reblog') {
-        post += '<div>' + post_content.text+ '</div>';
+        post += '<div>' + post_content.reblog_text+ '</div>';
         var reblog = post_content.reblog_body;
         post += '<div>' + tuita.html(reblog.post_type, reblog.post_content) + '</div>';
     } else {
@@ -57,12 +54,15 @@ tuita.parse = function(feed) {
     try {
         var typeid = feed.typeid;
         var type = types[typeid];
+        if (typeid == 21)
+            return;
 
         var div = '<div>';
         var avatar = feed.sdid;
         var content = feed.content;
         var poster = content.sdid;
         var post_content = content.post_content;
+        var post_avatar = content.sdid;
         var post_type = content.post_type;
         var post = '<div class="feed_group" style="text-align: left">'
                     +  '<p class="cell_user_info" >' + avatar.blog_title + '</p>'
@@ -70,6 +70,8 @@ tuita.parse = function(feed) {
                     +    '<div class="feed">';
         if (content.post_title)
             post +=  '<h2 class="title">' + content.post_title + '</h2>';
+        if (post_avatar && post_avatar.blog_title)
+            post += '<p class="cell_user_info" >' + post_avatar.blog_title + '</p>';
         post += tuita.html(post_type, post_content);
         post    +=     '</div>'
                 +   '</div>'
