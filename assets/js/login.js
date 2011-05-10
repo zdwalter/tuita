@@ -7,7 +7,7 @@ var tries = 0;
 var ajax_handler = null; 
 
 function test_login() {
-    debug('test_login')
+    debug('test_login');
     if (is_login) 
         go_home();
     else {
@@ -22,6 +22,7 @@ function test_login() {
 };
 
 function doLogin() {
+    tries = 0;
     try {
         debug('doLogin');
         var username = $("input#username").val();
