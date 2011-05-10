@@ -25,6 +25,7 @@ var types = {
 
 tuita.html = function(type, post_content) {
     var post = '';
+    post += '<div>' + type + '</div>';
     if (type == 'tuita') {
         post += '<div>' + post_content.body + '</div>'
             ;
@@ -35,9 +36,10 @@ tuita.html = function(type, post_content) {
             ;
 
     }else if (type == 'photoset') {
+        post +=  '<h2 class="title">' + post_content.post_title + '</h2>';
         for (i in post_content) {
             var photo = post_content[i];
-            post += '<div>' + photo.photo_url + "." + photo.photo_type +"</div>";
+            post += '<img src="http://photo.staticsdo.com/' + photo.photo_url + "." + photo.photo_type +'">';
         }
     } else if (type == 'reblog') {
         post += '<div>' + post_content.reblog_text + '</div>';
