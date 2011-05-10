@@ -23,9 +23,8 @@ var types = {
     21: 'unknown'
 };
 
-tuita.html = function(post_content) {
+tuita.html = function(type, post_content) {
     var post = '';
-    var type = post_content.post_type;
     if (type == 'tuita') {
         post += '<div>' + post_content.body + '</div>'
             ;
@@ -42,7 +41,7 @@ tuita.html = function(post_content) {
         }
     } else if (type == 'reblog') {
         post += '<div>' + post_content.reblog_text + '</div>';
-        post += tuita.html(post_content.reblog_body);
+        post += '<div>' + tuita.html(post_content.reblog_body) + '</div>';
     } else {
         post += '<div>' + post_content + '</div>';
     }
@@ -58,11 +57,12 @@ tuita.parse = function(feed) {
         var content = feed.content;
         var poster = content.sdid;
         var post_content = content.post_content;
+        var post_type = content.post_type;
         var post = '<div class="feed_group">'
                     +  '<p class="cell_user_info">' + avatar.blog_title + '</p>'
                     +  '<div class="content">' 
                     +    '<div class="feed">';
-        post += tuita.html(post_content);
+        post += tuita.html(post_type, post_content);
         post    +=     '</div>'
                 +   '</div>'
                 + '</div>';
