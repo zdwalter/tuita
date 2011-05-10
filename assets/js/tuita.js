@@ -13,6 +13,22 @@ function load_tuita() {
         success: after_load_tuita
         });
 };
+var tuita = {};
+
+tuita.parse = function(feed) {
+    debug("parse:"+JSON.stringify(feed));
+};
+
+tuita.render = function(feeds) {
+    debug("render:"+feeds);
+    for (i in feeds) {
+        var feed = feeds[i];
+        tuita.parse(feed);
+    }
+};
+
+var test = (function() {
+})();
 
 function after_load_tuita(res) {
     var reg_avatar = /background:url\(.*\)/i;
@@ -23,22 +39,9 @@ function after_load_tuita(res) {
     var reg_render = /tuita.render\(.*\);/
     var render = reg_render.exec(res);
     debug(render);
-    feeds = render.replace('tuita\.render(','').replace(');','');
+    feeds = render.toString().replace('tuita\.render(','').replace(');','');
     debug(feeds);
     tuita.render(feeds);
 };
 
-var tuita = {};
-
-tuita.parse = function(feed) {
-    debug("parse:"+feed);
-};
-
-tuita.render = function(feeds) {
-    debug("reder:"+feeds);
-    for (i in feeds) {
-        var feed = feeds[i];
-        debug(i+'-'+JSON.stringify(feed.sdid));
-    }
-};
 
