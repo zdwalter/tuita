@@ -5,7 +5,7 @@ var init = (function () {
         return;
     is_init = true;
 
-    alert('init'); 
+    debug('init'); 
     store_load();
     test_login();
     //navigator.network.isReachable("tuita.com", function(status) {
