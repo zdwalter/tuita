@@ -1,9 +1,11 @@
-var release = true;
+var release = false;
 var log = '';
 var step = 0;
 function debug(msg) {
     log = step + ":" + msg + '\n' + log;  
     step += 1;
+    if (!release)
+        alert(msg);
 };
 
 function show_log() {
