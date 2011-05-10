@@ -180,7 +180,6 @@ function test_getfeed(feed) {
         go_home();
     }
     else {
-        go_home(); //debug
         is_login = false;
         if (tries > 0) { //called from login_by_user_pass
             alert('login failed');
