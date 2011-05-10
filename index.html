@@ -26,10 +26,6 @@
 		<script src="assets/js/tuita.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-        <!--
- 		<div id="title_bar"><strong>推他</strong></div>
-        -->
-
 		<div id="welcome" class="view">
             <div class="welcome_image">
                 <img width="100%" id="welcome_image" src="assets/img/welcome.jpeg">
@@ -37,10 +33,15 @@
             <p> try to login ... </p>
         </div>
         <div id="home" class="view">
-            <p> welcome <strong id="user"></strong></p>
+            <p> home </p>
             <div class='cell_my_avatar'>
                 <p class='avatar' style=''></p>
             </div>
+            <article class="mod_feeds" id="feedBlock">
+                <h3 class="title">推他列表</h3>
+                <p class="empty" attr="inner:noFeed" style="display:none">暂时没有动态</p>
+            </article>
+
         </div>
 
         <div id="logout" class="view">
