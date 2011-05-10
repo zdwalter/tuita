@@ -24,7 +24,7 @@ var types = {
     23: 'tuita.update'
 };
 
-tuita.html = function(type, post_content) {
+tuita.html = function(type, post_content, avatar) {
     var post = '';
     //post += '<p>'+type +'</p>';
 
@@ -43,6 +43,8 @@ tuita.html = function(type, post_content) {
         }
     } else if (type == 'reblog') {
         post += '<div>' + post_content.reblog_text+ '</div>';
+        if (avatar && avatar.blog_title)
+            post += '<p class="cell_user_info" >' + avatar.blog_title + '</p>';
         var reblog = post_content.reblog_body;
         post += '<div>' + tuita.html(reblog.post_type, reblog.post_content) + '</div>';
     } else {
@@ -71,9 +73,7 @@ tuita.parse = function(feed) {
                     +    '<div class="feed">';
         if (content.post_title)
             post +=  '<h2 class="title">' + content.post_title + '</h2>';
-        if (post_avatar && post_avatar.blog_title)
-            post += '<p class="cell_user_info" >' + post_avatar.blog_title + '</p>';
-        post += tuita.html(post_type, post_content);
+        post += tuita.html(post_type, post_content, post_avatar);
         post    +=     '</div>'
                 +   '</div>'
                 + '</div>';
