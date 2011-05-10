@@ -20,35 +20,31 @@ var types = {
     2: 'blog',
     4: 'photoset',
     7: 'reblog',
-    21: 'unknown'
 };
 
-tuita.html = function(type, post_content) {
+tuita.html = function(type, post_content, title) {
     var post = '';
-    post += '<div>' + type + '</div>';
     if (type == 'tuita') {
         post += '<div>' + post_content.body + '</div>'
             ;
     }
-    else if (type == 'post_blog') {
-        post +=  '<h2 class="title">' + post_content.post_title + '</h2>'
-            +     '<div>' + post_content.summary + '</div>'
+    else if (type == 'blog') {
+        post +='<div>' + post_content.summary + '</div>'
             ;
 
     }else if (type == 'photoset') {
-        post +=  '<h2 class="title">' + post_content.post_title + '</h2>';
         for (i in post_content) {
             var photo = post_content[i];
-            post += '<img src="http://photo.staticsdo.com/' + photo.photo_url + "." + photo.photo_type +'">';
-            post += '<p>"http://photo.staticsdo.com/' + photo.photo_url + "." + photo.photo_type +'"</p>';
+            post += '<img src="http://photo.staticsdo.com/' + photo.photo_url + "-256." + photo.photo_type +'">';
+            //post += '<p>"http://photo.staticsdo.com/' + photo.photo_url + "." + photo.photo_type +'"</p>';
         }
     } else if (type == 'reblog') {
-        post += '<div>' + post_content.reblog_text + '</div>';
+        post += '<div>' + post_content.summary + '</div>';
         var reblog = post_content.reblog_body;
         post += '<div>' + tuita.html(reblog.post_type, reblog.post_content) + '</div>';
     } else {
-        post += '<h2 calss="title"> not support yet </h2>';
-        post += '<div>' + JSON.stringify(post_content) + '</div>';
+        post += '<h2 calss="title"> ' + type +'</h2>';
+        post += '<div>' + post_content.summary + '</div>';
     }
     return post;
 };
@@ -63,10 +59,11 @@ tuita.parse = function(feed) {
         var poster = content.sdid;
         var post_content = content.post_content;
         var post_type = content.post_type;
-        var post = '<div class="feed_group">'
-                    +  '<p class="cell_user_info">' + avatar.blog_title + '</p>'
+        var post = '<div class="feed_group" sytle="text-align: left">'
+                    +  '<p class="cell_user_info" >' + avatar.blog_title + '</p>'
                     +  '<div class="content">' 
                     +    '<div class="feed">';
+        post +=  '<h2 class="title">' + post_content.post_title + '</h2>';
         post += tuita.html(post_type, post_content);
         post    +=     '</div>'
                 +   '</div>'

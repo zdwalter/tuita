@@ -132,7 +132,7 @@ function after_login_sdo_href(responseText) {
 }; //after_login_sdo_href
 
 function on_error(msg) {
-    alert('network error'+msg);
+    alert('error:\n'+msg);
 };
 
 function after_login_tuita(responseText) {
