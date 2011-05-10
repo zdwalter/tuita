@@ -24,7 +24,6 @@ var types = {
 
 tuita.parse = function(feed) {
     try {
-        debug(feed.typeid);
         var typeid = feed.typeid;
         var type = types[typeid];
         debug(type);
@@ -44,7 +43,6 @@ tuita.parse = function(feed) {
                 +     '<div>' + summary + '</div>'
                 +   '</div>'
                 + '</div>';
-            debug(post);
             div += post;
         };
 
