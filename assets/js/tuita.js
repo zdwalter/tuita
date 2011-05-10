@@ -26,7 +26,6 @@ tuita.parse = function(feed) {
     try {
         var typeid = feed.typeid;
         var type = types[typeid];
-        debug(type);
 
         var div = '<div>';
         var avatar = feed.sdid;
@@ -47,7 +46,7 @@ tuita.parse = function(feed) {
         };
 
         div += '</div>';
-        x$('aritical#feedBlocks').bottom(div);
+        x$('article#feedBlocks').bottom(div);
     }
     catch(e) {
         on_error(e);
@@ -56,7 +55,7 @@ tuita.parse = function(feed) {
 
 tuita.render = function(feeds) {
     if (feeds.length) {
-        x$('aritical#feedBlocks').inner('');
+        x$('article#feedBlocks').inner('');
     }
     for (i in feeds) {
         var feed = feeds[i];
