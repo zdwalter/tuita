@@ -181,12 +181,12 @@ function test_getfeed(feed) {
         is_login = false;
         if (tries > 0) { //called from login_by_user_pass
             alert('login failed');
+            return display('#login');
         }
         else {
             tries += 1;
             if (login.username && login.password)
                 return login_by_user_pass();
-            tries = 0;
             return display('#login');
         }
     }
