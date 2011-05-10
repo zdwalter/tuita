@@ -1,12 +1,13 @@
 var release = true;
 var log = '';
+var step = 0;
 function debug(msg) {
-    if (config.debug) {
-        if (release)
-            log += msg + '\n'; //TODO: add send log
-        else
-            alert('debug:\n'+msg);
-    }
+    log = "\n"+ step + ":" + msg; 
+    step += 1;
 };
 
+function show_log() {
+    alert('callstack:\n'+log);
+    log = '';
+};
 
