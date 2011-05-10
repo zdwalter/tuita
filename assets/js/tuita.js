@@ -46,7 +46,7 @@ tuita.parse = function(feed) {
         };
 
         div += '</div>';
-        x$('article#feedBlocks').bottom(div);
+        x$('article#feeds').bottom(div);
     }
     catch(e) {
         on_error(e);
@@ -55,7 +55,7 @@ tuita.parse = function(feed) {
 
 tuita.render = function(feeds) {
     if (feeds.length) {
-        x$('article#feedBlocks').inner('');
+        x$('article#feeds').inner('');
     }
     for (i in feeds) {
         var feed = feeds[i];
