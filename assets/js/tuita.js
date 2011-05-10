@@ -41,7 +41,7 @@ function after_load_tuita(res) {
     debug(render);
     feeds = render.toString().replace('tuita\.render(','').replace(');','');
     debug(feeds);
-    tuita.render(feeds);
+    tuita.render(eval(feeds));
 };
 
 
