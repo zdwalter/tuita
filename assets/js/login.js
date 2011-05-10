@@ -106,6 +106,7 @@ function after_login_sdo(responseText) {
         var regAlert = /alert\(msgobj\)/i;
         if (regAlert.exec(responseText)) {
             alert('login failed');
+            alert(log);
             return display('#login');
         }
         var reg = /href = .*;/i;
@@ -181,6 +182,7 @@ function test_getfeed(feed) {
         is_login = false;
         if (tries > 0) { //called from login_by_user_pass
             alert('login failed');
+            alert(log);
             return display('#login');
         }
         else {
