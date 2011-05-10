@@ -1,4 +1,4 @@
-var release = true;
+var release = false;
 var log = '';
 function debug(msg) {
     if (config.debug) {
