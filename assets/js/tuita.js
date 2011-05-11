@@ -2,7 +2,6 @@ var theData = new Lawnchair({adaptor:'dom'});
 
 function go_home() {
     load_tuita();
-    display('#home');
 };
 
 function load_tuita() {
@@ -100,6 +99,7 @@ tuita.render = function(feeds) {
 };
 
 function after_load_tuita(res) {
+    debug('after_load_tuita');
     var reg_avatar = /background:url\(.*\)/i;
     var result_avatar = reg_avatar.exec(res);
     debug('avatar:'+result_avatar);
@@ -109,6 +109,8 @@ function after_load_tuita(res) {
     var reg_render = /tuita.render\(.*\);/
     var render = reg_render.exec(res);
     feeds = render.toString().replace('tuita\.render(','').replace(');','');
+    debug('feeds:'+feeds);
     tuita.render(eval(feeds));
+    display('#home');
 };
 
