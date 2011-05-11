@@ -86,7 +86,7 @@ tuita.parse = function(feed) {
             post +='<div>reply</div>'
             if (avatar && avatar.blog_title)
                 post += '<p class="cell_user_info" >' + avatar.blog_title + '</p>';
-            post +='<div>say:' + content.reply_info.reply_text + '</div>'
+            post +='<div><p>say:</p>' + content.reply_info.reply_text + '</div>'
         }
    
         post    +=     '</div>'
