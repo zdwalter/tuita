@@ -71,21 +71,21 @@ tuita.parse = function(feed) {
                     +  '<p class="cell_user_info" >' + avatar.blog_title + '</p>'
                     +  '<div class="content">' 
                     +    '<div class="feed">';
-        if (content.post_title)
-            post +=  '<h2 class="title">' + content.post_title + '</h2>';
-        if (typeid < 10)
+        if (typeid < 10) {
+            if (content.post_title)
+                post +=  '<h2 class="title">' + content.post_title + '</h2>';
             post += tuita.html(post_type, post_content, post_avatar);
+        }
         else if (typeid == 21) {
             var avatar = post_avatar;
             if (avatar && avatar.blog_title)
-                post += '<p class="cell_user_info" >' + avatar.blog_title + '</p>';
-            post +='<div>' + 'follows you' + '</div>'
+                post += '<p class="cell_user_info" >' + avatar.blog_title + 'follows you</p> ';
         }
         else if (typeid == 22) {
             var avatar = post_avatar;
             if (avatar && avatar.blog_title)
                 post += '<p class="cell_user_info" >' + avatar.blog_title + '</p>';
-            post +='<div>' + post_content.replay_info.reply_text + '</div>'
+            post +='<div>' + post_content.reply_info.reply_text + '</div>'
         }
    
         post    +=     '</div>'
