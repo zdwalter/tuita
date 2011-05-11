@@ -79,13 +79,14 @@ tuita.parse = function(feed) {
         else if (typeid == 21) {
             var avatar = post_avatar;
             if (avatar && avatar.blog_title)
-                post += '<p class="cell_user_info" >' + avatar.blog_title + 'follows you</p> ';
+                post += '<div> follows ' + avatar.blog_title + '</p> ';
         }
         else if (typeid == 22) {
             var avatar = post_avatar;
+            post +='<div>reply</div>'
             if (avatar && avatar.blog_title)
                 post += '<p class="cell_user_info" >' + avatar.blog_title + '</p>';
-            post +='<div>' + post_content.reply_info.reply_text + '</div>'
+            post +='<div>say:' + content.reply_info.reply_text + '</div>'
         }
    
         post    +=     '</div>'
