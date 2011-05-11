@@ -49,13 +49,11 @@ function doLogin() {
 function reset_cookie_from_response() {
     debug('reset_cookie_from_response');
     debug(ajax_handler.getAllResponseHeaders());
-    var reg = /Set-Cookie: .*/i;
+    var reg = /Cookie: .*/i;
     var result = reg.exec(ajax_handler.getAllResponseHeaders());
     if (!result)
         return;
-    show_log();
-    alert((""+result).replace(/Set-Cookie: /i,"cookie = '")+"'");
-    eval((""+result).replace(/Set-Cookie: /i,"cookie = '")+"'");
+    eval((""+result).replace(/Cookie: /i,"cookie = '")+"'");
     debug(cookie);
 };
 
@@ -79,7 +77,7 @@ function login_by_user_pass() {
 
         var url = "https://dplogin.sdo.com/dispatchlogin.fcgi";
         ajax_handler = $.ajax({
-            url: config.redirect ? config.portal+"/redirect/tuita/"+escape(url) : url,  
+            url: generate_portal_url(url),  
             type: 'post',
             data: postStr,
             success: after_login_sdo,
@@ -127,7 +125,7 @@ function after_login_sdo(responseText) {
         //alert(href);
         var url = href;
         ajax_handler = $.ajax({
-            url: config.redirect ? config.portal+"/redirect/tuita/"+escape(url) : url,  
+            url: generate_portal_url(url),  
             type: 'get', 
      //       headers: { Cookie: cookie },
             success: after_login_sdo_href,
@@ -173,23 +171,21 @@ function after_login_sdo_href(responseText) {
 
 function after_login_tuita(responseText) {
     debug('after_login_tuita:'+responseText);
-    //reset_cookie_from_response();
-    //this.responseText = responseText;
-    //debug('cookie:'+cookie);
-    //cookie = cookie.replace(/.*__ttst=/,'__ttst=').replace(/;.*/,'');
-    //debug('cookie:'+cookie);
-    //login.tuita_cookie = cookie;
+    reset_cookie_from_response();
     store_save();
 
+    //is_login = true;
+    //return go_home();
     login_tuita_with_cookie();
 };
 
+function generate_portal_url(url) {
+    return  config.redirect ? config.portal+"/redirect/tuita/"+escape(url) : url ;
+    };
 function login_tuita_with_cookie() {
-    is_login = true;
-    return go_home();
     ajax_handler = $.ajax({
-        url: 'http://www.tuita.com/home/getfeed',
-        //headers: { Cookie: login.tuita_cookie},
+        url: generate_portal_url('http://www.tuita.com/home/getfeed'),
+        headers: { Cookie: login.tuita_cookie},
         type: 'get',
         success: test_getfeed,
         error: on_login_error
