@@ -6,10 +6,10 @@ function go_home() {
 };
 
 function load_tuita() {
-    debug("load_tuite:'+login.tuita_cookie");
+    debug("load_tuite:");
     ajax_handler = $.ajax({
-        url: 'http://www.tuita.com/',
-        headers: { Cookie: login.tuita_cookie},
+        url: generate_portal_url('http://www.tuita.com/'),
+        headers: generate_portal_cookie( login.tuita_cookie ),
         type: 'get',
         success: after_load_tuita,
         error: on_login_error

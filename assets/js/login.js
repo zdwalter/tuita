@@ -52,14 +52,12 @@ function reset_cookie_from_response() {
     var reg = /Cookie: .*/i;
     var result = reg.exec(ajax_handler.getAllResponseHeaders());
     if (!result) {
-        show_log();
         return;
     }
     eval((""+result).replace(/Cookie: /i,"cookie = '")+"'");
     debug(cookie);
     login.tuita_cookie = cookie;
-    debug('tuita_cookie:'+config.tuita_cookie);
-        show_log();
+    debug('tuita_cookie:'+tuita.tuita_cookie);
     store_save();
 };
 
@@ -194,7 +192,7 @@ function generate_portal_cookie(cookie) {
 function login_tuita_with_cookie() {
     ajax_handler = $.ajax({
         url: generate_portal_url('http://www.tuita.com/home/getfeed'),
-        headers: {Cookie: login.tuita_cookie},
+        headers: generate_portal_cookie(login.tuita_cookie),
         type: 'get',
         success: test_getfeed,
         error: on_login_error
