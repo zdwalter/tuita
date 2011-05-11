@@ -106,6 +106,9 @@ function after_login_sdo(responseText) {
         var regCAPTCHA = /CAPTCHA/i;
         var captcha = regCAPTCHA.exec(this.responseText);
         if (captcha) {
+            alert('require input captcha; not support yet, please try later(1min)');
+            display('#login');
+            return;
             return on_login_error('require input captcha; not support yet, please try later(1min)');
         };
 
