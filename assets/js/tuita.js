@@ -35,8 +35,10 @@ tuita.html = function(type, post_content, avatar) {
             ;
     }
     else if (type == 'blog') {
-        post +='<div>' + post_content.summary + '</div>'
-            ;
+        post +='<div>' + post_content.summary + '</div>';
+        if (post_content.suImg) {
+            post += '<img width="100%" src="' + post_content.suImg + '">';
+        }
     }else if (type == 'photoset') {
         for (i in post_content) {
             var photo = post_content[i];
