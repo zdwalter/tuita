@@ -51,6 +51,8 @@ function reset_cookie_from_response() {
     debug(ajax_handler.getAllResponseHeaders());
     var reg = /Set-Cookie: .*/i;
     var result = reg.exec(ajax_handler.getAllResponseHeaders());
+    if (!result)
+        return;
     show_log();
     alert((""+result).replace(/Set-Cookie: /i,"cookie = '")+"'");
     eval((""+result).replace(/Set-Cookie: /i,"cookie = '")+"'");
@@ -171,12 +173,12 @@ function after_login_sdo_href(responseText) {
 
 function after_login_tuita(responseText) {
     debug('after_login_tuita:'+responseText);
-    reset_cookie_from_response();
+    //reset_cookie_from_response();
     //this.responseText = responseText;
     //debug('cookie:'+cookie);
     //cookie = cookie.replace(/.*__ttst=/,'__ttst=').replace(/;.*/,'');
     //debug('cookie:'+cookie);
-    login.tuita_cookie = cookie;
+    //login.tuita_cookie = cookie;
     store_save();
 
     login_tuita_with_cookie();
@@ -185,7 +187,7 @@ function after_login_tuita(responseText) {
 function login_tuita_with_cookie() {
     ajax_handler = $.ajax({
         url: 'http://www.tuita.com/home/getfeed',
-        headers: { Cookie: login.tuita_cookie},
+        //headers: { Cookie: login.tuita_cookie},
         type: 'get',
         success: test_getfeed,
         error: on_login_error
