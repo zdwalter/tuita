@@ -185,6 +185,8 @@ function after_login_tuita(responseText) {
 };
 
 function login_tuita_with_cookie() {
+    is_login = true;
+    return go_home();
     ajax_handler = $.ajax({
         url: 'http://www.tuita.com/home/getfeed',
         //headers: { Cookie: login.tuita_cookie},
