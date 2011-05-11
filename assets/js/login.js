@@ -128,14 +128,14 @@ function after_login_sdo(responseText) {
             type: 'get', 
      //       headers: { Cookie: cookie },
             success: after_login_sdo_href,
-            error: on_login_sdo_error
+            error: on_login_sdo_href_error
         });
-        function on_login_sdo_error(err) {
-            debug("on_login_sdo_error");
+        function on_login_sdo_href_error(err) {
+            debug("on_login_sdo_href_error");
             ajax_handler = $.ajax({
                 url: config.portal+"/redirect/tuita/"+escape(url),
                 type: 'get',
-                success: after_login_sdo,
+                success: after_login_sdo_href,
                 error: on_login_error
             });
         };
