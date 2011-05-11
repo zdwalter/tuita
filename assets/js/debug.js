@@ -1,4 +1,4 @@
-var release = false; //false;
+var release = true; //false;
 var log = '';
 var step = 0;
 function debug(msg) {
