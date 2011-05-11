@@ -4,6 +4,10 @@ var config = {
     portal: 'http://p.gfw4.info', //TODO: detect host
     redirect: true
 };
+var info = {
+    version: "0.1.0",
+    download_url: ""
+}; //TODO:
 var login = {
     tuita_cookie: null,
     username: null,
