@@ -131,8 +131,7 @@ function after_login_sdo(responseText) {
             debug("on_login_sdo_error");
             ajax_handler = $.ajax({
                 url: config.portal+"/redirect/tuita/"+escape(url),
-                type: 'post',
-                data: postStr,
+                type: 'get',
                 success: after_login_sdo,
                 error: on_login_error
             });
