@@ -3,7 +3,6 @@ var is_init = false;
 var init = (function () {
     if (is_init)
         return;
-    is_init = true;
 
     debug('init'); 
     store_load();
@@ -68,5 +67,10 @@ var init = (function () {
         display('#welcome');
     });
 
-})();
+});
+
+if (window.location.hostname) {
+    //website
+    init();
+}
 
