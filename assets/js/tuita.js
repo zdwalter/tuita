@@ -22,6 +22,7 @@ var types = {
     4: 'photoset',
     7: 'reblog',
     21: 'follow.update',
+    22: 'reply',
     23: 'tuita.update'
 };
 
@@ -58,8 +59,6 @@ tuita.parse = function(feed) {
     try {
         var typeid = feed.typeid;
         var type = types[typeid];
-        if (typeid > 20)
-            return;
 
         var div = '<div>';
         var avatar = feed.sdid;
@@ -74,7 +73,21 @@ tuita.parse = function(feed) {
                     +    '<div class="feed">';
         if (content.post_title)
             post +=  '<h2 class="title">' + content.post_title + '</h2>';
-        post += tuita.html(post_type, post_content, post_avatar);
+        if (typeid < 10)
+            post += tuita.html(post_type, post_content, post_avatar);
+        else if (typeid == 21) {
+            var avatar = post_avatar;
+            if (avatar && avatar.blog_title)
+                post += '<p class="cell_user_info" >' + avatar.blog_title + '</p>';
+            post +='<div>' + 'follows you' + '</div>'
+        }
+        else if (typeid == 22) {
+            var avatar = post_avatar;
+            if (avatar && avatar.blog_title)
+                post += '<p class="cell_user_info" >' + avatar.blog_title + '</p>';
+            post +='<div>' + post_content.replay_info.reply_text + '</div>'
+        }
+   
         post    +=     '</div>'
                 +   '</div>'
                 + '</div>';
