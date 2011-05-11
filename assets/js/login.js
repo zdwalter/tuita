@@ -55,6 +55,8 @@ function reset_cookie_from_response() {
         return;
     eval((""+result).replace(/Cookie: /i,"cookie = '")+"'");
     debug(cookie);
+    config.tuita_cookie = cookie;
+    store_save();
 };
 
 function login_by_user_pass() {
@@ -172,7 +174,6 @@ function after_login_sdo_href(responseText) {
 function after_login_tuita(responseText) {
     debug('after_login_tuita:'+responseText);
     reset_cookie_from_response();
-    store_save();
 
     //is_login = true;
     //return go_home();
