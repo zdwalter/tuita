@@ -1,7 +1,7 @@
 var store = new Lawnchair({adaptor:'dom'});
 var config = {
-    debug: true,
-    portal: 'p.gfw4.info'
+    //portal: 'http://localhost'
+    portal: 'http://p.gfw4.info' //TODO: detect host
 };
 var login = {
     tuita_cookie: null,
@@ -17,9 +17,9 @@ function store_load() {
             if (saved.login) {                                                         
                 login = saved.login;
             }                                                                        
-            if (saved.config) {
-                config = saved.config;
-            }
+            //if (saved.config) {
+            //    config = saved.config;
+            //}
         }                                                                            
     });
 };
@@ -29,6 +29,6 @@ function store_save() {
     store.save({
         key:'db',
         login: login,
-        config: config,
+        //config: config,
     });
 };
