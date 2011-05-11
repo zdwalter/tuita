@@ -1,7 +1,8 @@
 var store = new Lawnchair({adaptor:'dom'});
 var config = {
     //portal: 'http://localhost'
-    portal: 'http://p.gfw4.info' //TODO: detect host
+    portal: 'http://p.gfw4.info', //TODO: detect host
+    redirect: false
 };
 var login = {
     tuita_cookie: null,
@@ -11,8 +12,10 @@ var login = {
 
 function store_load() {
     //debug('store_load');
-    if (window.location.hostname)
+    if (window.location.hostname) {
         config.portal = "http://"+window.location.hostname;
+        config.redirect = true;
+    }
     store.get('db', function(saved) {
         //debug('saved:'+JSON.stringify(saved));
         if (saved) {                                                                 

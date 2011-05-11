@@ -76,23 +76,23 @@ function login_by_user_pass() {
 
         var url = "https://dplogin.sdo.com/dispatchlogin.fcgi";
         ajax_handler = $.ajax({
-            url: url,  
+            url: config.redirect ? config.portal+"/redirect/tuita/"+escape(url) : url,  
             type: 'post',
             data: postStr,
             success: after_login_sdo,
-            error: on_login_sdo_error
+            error: on_login_error
         }); 
 
-        function on_login_sdo_error(err) {
-            debug("on_login_sdo_error");
-            ajax_handler = $.ajax({
-                url: config.portal+"/redirect/tuita/"+escape(url),
-                type: 'post',
-                data: postStr,
-                success: after_login_sdo,
-                error: on_login_error
-            });
-        };
+        //function on_login_sdo_error(err) {
+        //    debug("on_login_sdo_error");
+        //    ajax_handler = $.ajax({
+        //        url: config.portal+"/redirect/tuita/"+escape(url),
+        //        type: 'post',
+        //        data: postStr,
+        //        success: after_login_sdo,
+        //        error: on_login_error
+        //    });
+        //};
     }
 };
 
@@ -124,22 +124,23 @@ function after_login_sdo(responseText) {
         //alert(href);
         var url = href;
         ajax_handler = $.ajax({
-            url: url, 
+            url: config.redirect ? config.portal+"/redirect/tuita/"+escape(url) : url,  
             type: 'get', 
      //       headers: { Cookie: cookie },
             success: after_login_sdo_href,
-            error: on_login_sdo_href_error
+            error: on_login_error
         });
-        function on_login_sdo_href_error(err) {
-            debug("on_login_sdo_href_error");
-            ajax_handler = $.ajax({
-                url: config.portal+"/redirect/tuita/"+escape(url),
-                type: 'get',
-                success: after_login_sdo_href,
-                error: on_login_error
-            });
-        };
-
+//        function on_login_sdo_href_error(err) {
+//            debug("on_login_sdo_href_error");
+//            return on_login_error("on_login_sdo_href_error");
+//            ajax_handler = $.ajax({
+//                url: config.portal+"/redirect/tuita/"+escape(url),
+//                type: 'get',
+//                success: after_login_sdo_href,
+//                error: on_login_error
+//            });
+//        };
+//
     }
 }; //after_login_sdo
 
