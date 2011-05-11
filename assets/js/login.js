@@ -119,13 +119,25 @@ function after_login_sdo(responseText) {
             return on_login_error('login failed');
         eval("var href; "+ result);
         //alert(href);
+        var url = href;
         ajax_handler = $.ajax({
-            url: href, 
+            url: url, 
             type: 'get', 
      //       headers: { Cookie: cookie },
             success: after_login_sdo_href,
-            error: on_login_error
+            error: on_login_sdo_error
         });
+        function on_login_sdo_error(err) {
+            debug("on_login_sdo_error");
+            ajax_handler = $.ajax({
+                url: config.portal+"/redirect/tuita/"+escape(url),
+                type: 'post',
+                data: postStr,
+                success: after_login_sdo,
+                error: on_login_error
+            });
+        };
+
     }
 }; //after_login_sdo
 
