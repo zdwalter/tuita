@@ -51,7 +51,8 @@ function reset_cookie_from_response() {
     debug(ajax_handler.getAllResponseHeaders());
     var reg = /Set-Cookie: .*/i;
     var result = reg.exec(ajax_handler.getAllResponseHeaders());
-    debug(result);
+    show_log();
+    alert((""+result).replace(/Set-Cookie: /i,"cookie = '")+"'");
     eval((""+result).replace(/Set-Cookie: /i,"cookie = '")+"'");
     debug(cookie);
 };
