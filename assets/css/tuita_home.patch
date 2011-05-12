@@ -1,0 +1,1 @@
+sed -i -e 's|\.\./\.\./img/theme/theme_canon/global.png?v=1305108877|/assets/img/global.png|g' tuita_home.css

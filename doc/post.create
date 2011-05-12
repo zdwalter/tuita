@@ -1,0 +1,39 @@
+Request URL:http://www.tuita.com/post/create
+Request Method:POST
+Status Code:200 OK
+Request Headers
+Accept:*/*
+Accept-Charset:GBK,utf-8;q=0.7,*;q=0.3
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:zh-CN,zh;q=0.8
+Connection:keep-alive
+Content-Length:68
+Content-Type:application/x-www-form-urlencoded
+Cookie:b_t_s=t105074132221xs; __utmz=143606314.1305122870.5.4.utmcsr=zdwalter.tuita.com|utmccn=(referral)|utmcmd=referral|utmcct=/blogpost/42508; PHPSESSID=9eb20aad3e3fa1ce01bc1684c6ff05b5; __utma=143606314.2061792250.1305074133.1305129123.1305184420.7; __utmc=143606314; __utmb=143606314.2.10.1305184420;
+__ttst=2F9WILAtPPmPpqkkWpPM5J4feqEhgguKPQ8Ia3blqfVO9olZr3C%2Ao-%2AlIBKDx-uxK2S-qxz1UaLzCA991xfAY%2AXXaXfeGyRCx2q22QnkoKQcnPBlX6H5OVxsPoa3QZXAxk8sf0uHRxrd4sdpV3sZHPvIVOWSQ4b1Z8g8Krmx6emSYpPMKY7LSuWflDCPDrFAXmcFcXZqLVc; __ttsa=1491837948; __ttstm=1305184431; tt_login=1; tt_reg=1
+Host:www.tuita.com
+Origin:http://www.tuita.com
+Referer:http://www.tuita.com/
+User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.65 Safari/534.24
+X-Requested-With:XMLHttpRequest
+Form Data
+post_type:tuita
+post_tag:
+post_content:{"body":"test"}
+Response Headers
+Cache-Control:no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Connection:keep-alive
+Content-Encoding:gzip
+Content-Type:text/html; charset=UTF-8
+Date:Thu, 12 May 2011 07:15:32 GMT
+Expires:Thu, 19 Nov 1981 08:52:00 GMT
+Pragma:no-cache
+Server:Apache/1.3.37.fb1
+Set-Cookie:__ttst=Sv9z8lXrgEkOJe6A2Fs7i54bHpv3F4-5TO3oJrId%2Akc4veRQ0B7rEoIkkiSQ0HErnGFC0%2AjyNX-bucEIaupQtAGUXKJ6kngusUo6OU0IqqhTjZtBu4my8lmy-Uyb9RMphGHrFQCbR5Fco40p6TjR5lw7R93YofH3cq4vrjIJZvk8J-s52JDs0hQ3umXn2Mf6fz-SqELqzAc; path=/; domain=tuita.com; httponly
+__ttsa=1491837948; path=/; domain=tuita.com
+__ttstm=1305184431; path=/; domain=tuita.com
+tt_login=1; expires=Fri, 11-May-2012 07:15:32 GMT; path=/; domain=tuita.com
+tt_reg=1; expires=Fri, 11-May-2012 07:15:32 GMT; path=/; domain=tuita.com
+Transfer-Encoding:chunked
+X-Powered-By:PHP/5.2.13
+x_host:t_211

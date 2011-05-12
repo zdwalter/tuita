@@ -119,7 +119,7 @@ function after_load_tuita(res) {
     var reg_avatar = /background:url\(.*\)/i;
     var result_avatar = reg_avatar.exec(res);
     debug('avatar:'+result_avatar);
-    x$('p[class=avatar]').attr('style',result_avatar);
+    x$('p[class=avatar]').attr('style',"margin: 0;"+result_avatar);
 
     //TODO user info
     var reg_render = /tuita.render\(.*\);/

@@ -28,17 +28,34 @@
 		<script src="assets/js/tuita.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
+        <!--
 		<div id="welcome" class="view">
             <div class="welcome_image">
                 <img width="100%" id="welcome_image" src="assets/img/welcome.jpeg">
             </div>
             <p> trying to login with last account </p>
         </div>
+        -->
         <div id="home" class="view">
-            <div class='cell_my_avatar'>
-                <p class='avatar' style=''></p>
-            </div>
-            <article class="mod_feeds" id="feeds">
+            <article class="mod_editor" style='height: 66px;width:100%'>
+            <div class='cell_my_avatar' style='padding: 0; height: 66px; margin: 0'>
+                <p class='avatar' style=''><a/></p>
+                </div>
+                <div class="content bg_a" id="tuitaInput" style='width:240px;height:64px'>
+                    <div class="icon_horn"></div>
+                    <ul class="tab" style='list-style: none; padding: 0; height: 32px'>
+                        <li attr="inner:wordContainer" style='width:64px; height: 32px'>
+                        <img src="assets/img/common/icon.png" class="icon_short_article" alt="短句" ></img>
+                        </li>
+                        <li attr="inner:photoContainer" style='width:64px; height: 32px'>
+                        <img src="assets/img/common/icon.png" class="icon_photo" alt="照片" />
+                        </li>
+
+                    </ul>
+                </div>
+            </article>
+
+           <article class="mod_feeds" id="feeds">
             <div class="feed_group">
                 <div class="content">
                     <div style="feed">
